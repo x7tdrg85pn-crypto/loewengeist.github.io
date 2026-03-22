@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Löwengeist – Verstand mit Rückgrat</title>
+  <title>Löwengeist – Öffentlicher Vermögensaufbau mit Verstand</title>
   <meta
     name="description"
-    content="Löwengeist – öffentlicher Vermögensaufbau, Marktzyklen und rationale Entscheidungen ohne Illusionen."
+    content="Löwengeist dokumentiert öffentlichen Vermögensaufbau im echten Markt – mit klarer Strategie, Marktzyklen und rationalen Entscheidungen ohne Hype."
   />
   <meta name="theme-color" content="#071b1f" />
 
@@ -41,7 +41,7 @@
       --radius-xl: 34px;
       --radius-lg: 26px;
       --radius-md: 18px;
-      --max: 1260px;
+      --max: 1280px;
     }
 
     * {
@@ -57,7 +57,7 @@
       font-family: "Inter", system-ui, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 12% 10%, rgba(245, 166, 35, 0.09), transparent 18%),
+        radial-gradient(circle at 12% 10%, rgba(245, 166, 35, 0.08), transparent 18%),
         radial-gradient(circle at 84% 14%, rgba(255, 255, 255, 0.06), transparent 13%),
         radial-gradient(circle at 50% 115%, rgba(255, 255, 255, 0.04), transparent 25%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 32%, var(--bg-3) 72%, var(--bg-4) 100%);
@@ -123,7 +123,7 @@
       padding: 16px 20px;
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 22px;
-      background: rgba(4, 14, 16, 0.66);
+      background: rgba(4, 14, 16, 0.68);
       box-shadow: var(--shadow-md);
     }
 
@@ -199,15 +199,46 @@
     .hero {
       min-height: calc(100vh - 100px);
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-      gap: 34px;
+      grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+      gap: 36px;
       align-items: center;
-      padding: 54px 0 26px;
+      padding: 56px 0 30px;
       position: relative;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: 10px;
+      width: min(42vw, 560px);
+      height: min(42vw, 560px);
+      background-image: url("logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.045;
+      filter: grayscale(1) brightness(1.8);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(245,166,35,0.14), transparent 70%);
+      pointer-events: none;
+      z-index: -3;
+      right: 6%;
+      bottom: 6%;
     }
 
     .hero-copy {
-      max-width: 780px;
+      max-width: 790px;
     }
 
     .eyebrow {
@@ -238,11 +269,11 @@
     h1 {
       margin: 0;
       font-family: "Manrope", "Inter", sans-serif;
-      font-size: clamp(3.7rem, 8vw, 7.8rem);
+      font-size: clamp(3.8rem, 8vw, 8rem);
       line-height: 0.9;
       letter-spacing: -0.075em;
       font-weight: 800;
-      max-width: 900px;
+      max-width: 920px;
     }
 
     .hero-highlight {
@@ -252,8 +283,8 @@
 
     .hero-sub {
       margin: 26px 0 0;
-      max-width: 720px;
-      font-size: clamp(1.16rem, 2vw, 1.52rem);
+      max-width: 760px;
+      font-size: clamp(1.16rem, 2vw, 1.5rem);
       line-height: 1.42;
       font-weight: 600;
       color: var(--text);
@@ -261,10 +292,10 @@
 
     .hero-text {
       margin: 18px 0 0;
-      max-width: 650px;
+      max-width: 670px;
       color: var(--muted);
       line-height: 1.84;
-      font-size: 1.04rem;
+      font-size: 1.03rem;
     }
 
     .hero-actions {
@@ -415,7 +446,7 @@
 
     .portfolio-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
       margin-bottom: 22px;
     }
@@ -492,11 +523,11 @@
     }
 
     .section {
-      padding: 78px 0;
+      padding: 82px 0;
     }
 
     .section-head {
-      max-width: 790px;
+      max-width: 800px;
       margin-bottom: 28px;
     }
 
@@ -512,7 +543,7 @@
     h2 {
       margin: 0;
       font-family: "Manrope", sans-serif;
-      font-size: clamp(2.2rem, 4vw, 3.7rem);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
       line-height: 1.03;
       letter-spacing: -0.055em;
     }
@@ -522,14 +553,22 @@
       color: var(--muted);
       line-height: 1.82;
       font-size: 1.03rem;
-      max-width: 760px;
+      max-width: 770px;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 20px;
+      margin-top: 24px;
     }
 
     .grid-2 {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 24px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .panel {
@@ -560,58 +599,10 @@
       line-height: 1.78;
     }
 
-    .principles {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .principle {
-      padding: 24px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.22s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .principle::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent 75%);
-      opacity: 0.92;
-    }
-
-    .principle:hover {
-      transform: translateY(-4px);
-      background: rgba(255,255,255,0.055);
-    }
-
-    .principle-title {
-      font-weight: 800;
-      margin-bottom: 8px;
-      font-size: 1.03rem;
-    }
-
-    .principle-text {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: 0.98rem;
-    }
-
-    .youtube-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .youtube-card {
+    .why-card,
+    .feature-card,
+    .identity-card,
+    .video-card {
       padding: 26px;
       border-radius: 24px;
       background:
@@ -623,22 +614,27 @@
       overflow: hidden;
     }
 
-    .youtube-card::before {
+    .why-card::before,
+    .feature-card::before,
+    .identity-card::before,
+    .video-card::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0 auto auto 0;
       width: 100%;
-      height: 1px;
+      height: 2px;
       background: linear-gradient(90deg, rgba(245,166,35,0.95), transparent 72%);
     }
 
-    .youtube-card:hover {
+    .why-card:hover,
+    .feature-card:hover,
+    .identity-card:hover,
+    .video-card:hover {
       transform: translateY(-4px);
       border-color: rgba(255,255,255,0.14);
     }
 
-    .youtube-label {
+    .card-label {
       display: inline-block;
       margin-bottom: 14px;
       font-size: 0.75rem;
@@ -648,21 +644,95 @@
       font-weight: 800;
     }
 
-    .youtube-card h3 {
+    .why-card h3,
+    .feature-card h3,
+    .identity-card h3,
+    .video-card h3 {
       margin: 0 0 10px;
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       letter-spacing: -0.03em;
     }
 
-    .youtube-card p {
+    .why-card p,
+    .feature-card p,
+    .identity-card p,
+    .video-card p {
       margin: 0;
       color: var(--muted);
       line-height: 1.76;
     }
 
-    .about-box {
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
       margin-top: 24px;
-      padding: 36px;
+    }
+
+    .video-thumb {
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(135deg, rgba(245,166,35,0.16), transparent 52%),
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.14), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+        linear-gradient(180deg, #0d2e34 0%, #07171b 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .video-thumb::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 16px 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: rgba(245,166,35,0.18);
+      border: 1px solid rgba(245,166,35,0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .video-thumb::after {
+      content: "";
+      position: absolute;
+      left: 38px;
+      bottom: 33px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 16px solid #ffffff;
+    }
+
+    .video-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .video-chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .about-shell {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .about-box {
+      padding: 34px;
       border-radius: 30px;
       background: linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.04));
       border: 1px solid rgba(255,255,255,0.1);
@@ -684,8 +754,8 @@
 
     .about-box p {
       margin: 0 0 18px;
-      font-size: 1.07rem;
-      line-height: 1.84;
+      font-size: 1.06rem;
+      line-height: 1.82;
       max-width: 940px;
       position: relative;
       z-index: 1;
@@ -704,6 +774,49 @@
 
     .muted {
       color: var(--muted);
+    }
+
+    .quote-box {
+      padding: 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-box::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -20px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(245,166,35,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .quote-text {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-sub {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.98rem;
+      position: relative;
+      z-index: 1;
     }
 
     .cta-box {
@@ -738,7 +851,7 @@
     }
 
     .footer {
-      margin-top: 86px;
+      margin-top: 90px;
       padding-top: 24px;
       border-top: 1px solid rgba(255,255,255,0.1);
       display: flex;
@@ -769,17 +882,42 @@
       color: var(--text);
     }
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+
     @media (max-width: 1100px) {
       .hero,
+      .about-shell,
       .grid-2,
-      .principles,
-      .youtube-grid {
+      .grid-3,
+      .videos-grid {
         grid-template-columns: 1fr;
       }
 
       .hero {
         min-height: auto;
         padding-top: 34px;
+      }
+
+      .hero::before {
+        width: 360px;
+        height: 360px;
+        opacity: 0.04;
       }
     }
 
@@ -809,8 +947,12 @@
 
       .hero-card,
       .panel,
-      .youtube-card,
+      .why-card,
+      .feature-card,
+      .identity-card,
+      .video-card,
       .about-box,
+      .quote-box,
       .cta-box {
         padding: 22px;
       }
@@ -839,6 +981,35 @@
       .hero-point {
         width: 100%;
       }
+
+      .hero::before {
+        width: 260px;
+        height: 260px;
+        right: -40px;
+        top: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .reveal.is-visible,
+      .btn,
+      .panel,
+      .why-card,
+      .feature-card,
+      .identity-card,
+      .video-card,
+      .allocation,
+      .nav-links a,
+      .nav-cta {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
     }
   </style>
 </head>
@@ -856,7 +1027,9 @@
 
         <nav class="nav-links">
           <a href="#portfolio">Portfolio</a>
-          <a href="#youtube">YouTube</a>
+          <a href="#why">Warum Löwengeist</a>
+          <a href="#content">Inhalte</a>
+          <a href="#videos">Videos</a>
           <a href="#about">Über mich</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
@@ -872,21 +1045,21 @@
       </header>
     </div>
 
-    <section class="hero">
+    <section class="hero reveal is-visible">
       <div class="hero-copy">
         <div class="eyebrow">Öffentlicher Vermögensaufbau</div>
         <h1>
-          Verstehe den Markt.
-          <span class="hero-highlight">Handle nicht wie die Masse.</span>
+          Öffentlicher Vermögensaufbau.
+          <span class="hero-highlight">Im echten Markt. Nicht im Rückblick.</span>
         </h1>
         <p class="hero-sub">
-          Löwengeist dokumentiert öffentlichen Vermögensaufbau mit echten Entscheidungen,
-          klarer Strategie und rationalem Blick auf Marktzyklen.
+          Löwengeist dokumentiert ein öffentliches Krypto-Portfolio mit klarer Strategie,
+          rationalen Entscheidungen und einem nüchternen Blick auf Marktzyklen.
         </p>
         <p class="hero-text">
           Kein Hype. Keine Show. Keine Illusion von schnellen Gewinnen.
           Sondern Transparenz, Disziplin und ein langfristiger Ansatz für Menschen,
-          die Vermögen aufbauen wollen, statt nur Content zu konsumieren.
+          die Vermögen aufbauen wollen, statt nur auf Schlagzeilen zu reagieren.
         </p>
 
         <div class="hero-actions">
@@ -904,7 +1077,7 @@
         <div class="hero-points">
           <div class="hero-point"><strong>Öffentlich</strong> dokumentiert</div>
           <div class="hero-point"><strong>Antizyklisch</strong> gedacht</div>
-          <div class="hero-point"><strong>Langfristig</strong> aufgebaut</div>
+          <div class="hero-point"><strong>Substanz</strong> statt Hype</div>
         </div>
       </div>
 
@@ -918,11 +1091,15 @@
         </div>
 
         <div class="portfolio-copy">
-          Öffentlicher Vermögensaufbau mit Fokus auf Disziplin,
+          Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Disziplin,
           Marktzyklen und rationale Entscheidungen statt kurzfristiger Emotionen.
         </div>
 
         <div class="portfolio-stats">
+          <div class="stat">
+            <div class="stat-label">Start</div>
+            <div class="stat-value">20.000 €</div>
+          </div>
           <div class="stat">
             <div class="stat-label">Ziel</div>
             <div class="stat-value">100.000 €</div>
@@ -932,8 +1109,8 @@
             <div class="stat-value">Krypto</div>
           </div>
           <div class="stat">
-            <div class="stat-label">Ansatz</div>
-            <div class="stat-value">Langfristig</div>
+            <div class="stat-label">Update</div>
+            <div class="stat-value">März 2026</div>
           </div>
         </div>
 
@@ -962,81 +1139,96 @@
       </aside>
     </section>
 
-    <section class="section" id="portfolio">
+    <section class="section reveal" id="portfolio">
       <div class="section-head">
         <div class="section-kicker">Road to 100k</div>
         <h2>Öffentlich. Nachvollziehbar. Echt.</h2>
         <p class="section-intro">
-          Ich dokumentiere meinen Vermögensaufbau nicht im Rückblick,
-          sondern im echten Markt. Genau das ist der Unterschied.
+          Ich dokumentiere meinen Vermögensaufbau nicht im Nachhinein,
+          sondern im laufenden Markt. Genau das macht den Unterschied.
         </p>
       </div>
 
       <div class="grid-2">
-        <div class="panel">
+        <div class="panel reveal reveal-delay-1">
           <h3>Was du hier siehst</h3>
           <p>
             Echte Entscheidungen, echte Gewichtungen und echte Gedankengänge –
-            nicht nachträglich geglättet und nicht im Nachhinein schön erzählt.
+            nicht nachträglich geglättet und nicht schön umgeschrieben.
           </p>
         </div>
-        <div class="panel">
+        <div class="panel reveal reveal-delay-2">
           <h3>Was du hier nicht bekommst</h3>
           <p>
-            Keine Signale, kein künstlicher Hype und keine Illusion von schnellen Gewinnen.
-            Sondern einen rationalen Blick auf Risiko, Timing und Disziplin.
+            Keine Signale, kein künstlicher Hype und keine Fantasie von schnellen Gewinnen.
+            Sondern eine rationale Einordnung von Risiko, Timing und Disziplin.
           </p>
-        </div>
-      </div>
-
-      <div class="principles">
-        <div class="principle">
-          <div class="principle-title">Antizyklisch denken</div>
-          <div class="principle-text">
-            Relevante Entscheidungen entstehen selten in Euphorie,
-            sondern oft in Unsicherheit.
-          </div>
-        </div>
-        <div class="principle">
-          <div class="principle-title">Risiko verstehen</div>
-          <div class="principle-text">
-            Vermögensaufbau bedeutet nicht nur Chance,
-            sondern vor allem saubere Einordnung von Risiko.
-          </div>
-        </div>
-        <div class="principle">
-          <div class="principle-title">Langfristig aufbauen</div>
-          <div class="principle-text">
-            Nicht jeder Marktzyklus macht reich. Aber klare Regeln schaffen
-            über Zeit echte Substanz.
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="youtube">
+    <section class="section reveal" id="why">
       <div class="section-head">
-        <div class="section-kicker">YouTube</div>
-        <h2>Drei Säulen. Ein klarer Stil.</h2>
+        <div class="section-kicker">Warum Löwengeist</div>
+        <h2>Verstehen statt folgen.</h2>
         <p class="section-intro">
-          Löwengeist verbindet Marktverständnis, öffentlich dokumentierten Vermögensaufbau
-          und rationale Entscheidungen in einem klaren Format.
+          Löwengeist steht für einen Stil, der Märkte ernst nimmt, Risiken nicht ausblendet
+          und finanzielle Entscheidungen nicht an Emotionen delegiert.
         </p>
       </div>
 
-      <div class="youtube-grid">
-        <div class="youtube-card">
-          <div class="youtube-label">01 · Marktzyklen</div>
-          <h3>Bitcoin, Marktphasen und Einordnung</h3>
+      <div class="grid-3">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="card-label">01 · Klarheit</div>
+          <h3>Rational statt reaktiv</h3>
           <p>
-            Ich analysiere Zyklen, emotionale Marktphasen und die Frage,
-            wann Chancen entstehen – nicht wenn alle euphorisch sind,
-            sondern wenn Klarheit selten ist.
+            Wer Vermögen aufbauen will, braucht keine ständige Aufregung,
+            sondern einen klaren Rahmen für Entscheidungen.
           </p>
         </div>
 
-        <div class="youtube-card">
-          <div class="youtube-label">02 · Portfolio</div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="card-label">02 · Haltung</div>
+          <h3>Substanz statt Hype</h3>
+          <p>
+            Märkte belohnen auf Dauer keine Lautstärke, sondern Disziplin,
+            Geduld und die Fähigkeit, Unsicherheit sauber einzuordnen.
+          </p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-3">
+          <div class="card-label">03 · Transparenz</div>
+          <h3>Öffentlich statt rückblickend</h3>
+          <p>
+            Entscheidungen wirken immer klug, wenn man sie im Nachhinein erklärt.
+            Hier werden sie im echten Markt sichtbar gemacht.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="content">
+      <div class="section-head">
+        <div class="section-kicker">Inhalte</div>
+        <h2>Drei Säulen. Ein klarer Stil.</h2>
+        <p class="section-intro">
+          Löwengeist verbindet Marktverständnis, öffentlich dokumentierten Vermögensaufbau
+          und rationale Entscheidungslogik in einem klaren Format.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="card-label">01 · Marktzyklen</div>
+          <h3>Bitcoin, Marktphasen und Einordnung</h3>
+          <p>
+            Analysen zu Zyklen, Stimmung, Risiko und Kaufbereichen –
+            mit Fokus auf das, was relevant ist, nicht auf das, was am lautesten ist.
+          </p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="card-label">02 · Portfolio</div>
           <h3>Road to 100k – öffentlich dokumentiert</h3>
           <p>
             Mein Portfolio ist kein Rückblick, sondern ein laufender Prozess.
@@ -1044,17 +1236,127 @@
           </p>
         </div>
 
-        <div class="youtube-card">
-          <div class="youtube-label">03 · Haltung</div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="card-label">03 · Haltung</div>
           <h3>Rational handeln statt emotional reagieren</h3>
           <p>
-            Löwengeist steht für finanzielle Selbstbestimmung, strategisches Denken
-            und einen Stil, der nicht von Hype, Angst oder Massenmeinungen abhängt.
+            Löwengeist steht für finanzielle Selbstbestimmung,
+            antizyklisches Denken und eine klare Distanz zur Massenpsychologie.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="videos">
+      <div class="section-head">
+        <div class="section-kicker">Featured Videos</div>
+        <h2>Analyse statt Ablenkung.</h2>
+        <p class="section-intro">
+          Drei exemplarische Themenfelder, für die Löwengeist steht.
+          Später kannst du hier echte Thumbnails und direkte Video-Links einsetzen.
+        </p>
+      </div>
+
+      <div class="videos-grid">
+        <a
+          class="video-card reveal reveal-delay-1"
+          href="https://www.youtube.com/@Loewengeist"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="video-thumb" aria-hidden="true"></div>
+          <div class="card-label">Marktzyklen</div>
+          <h3>Bitcoin 2026: Zyklus, Kaufbereiche & meine Strategie</h3>
+          <p>
+            Makro-Einordnung, Marktphasen und die Frage, wo echte Chancen entstehen,
+            wenn Emotionen dominieren.
+          </p>
+          <div class="video-meta">
+            <div class="video-chip">Analyse</div>
+            <div class="video-chip">Langfristig</div>
+          </div>
+        </a>
+
+        <a
+          class="video-card reveal reveal-delay-2"
+          href="https://www.youtube.com/@Loewengeist"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="video-thumb" aria-hidden="true"></div>
+          <div class="card-label">Portfolio</div>
+          <h3>Road to 100k – öffentlich durch den Markt</h3>
+          <p>
+            Kein Rückblick, sondern laufende Dokumentation von Gedanken,
+            Gewichtungen und strategischen Entscheidungen.
+          </p>
+          <div class="video-meta">
+            <div class="video-chip">Road to 100k</div>
+            <div class="video-chip">Transparent</div>
+          </div>
+        </a>
+
+        <a
+          class="video-card reveal reveal-delay-3"
+          href="https://www.youtube.com/@Loewengeist"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="video-thumb" aria-hidden="true"></div>
+          <div class="card-label">Haltung</div>
+          <h3>Warum rationale Anleger im Bärenmarkt anders denken</h3>
+          <p>
+            Vermögensaufbau ist kein Entertainment-Format,
+            sondern ein Spiel aus Disziplin, Timing und Haltung.
+          </p>
+          <div class="video-meta">
+            <div class="video-chip">Psychologie</div>
+            <div class="video-chip">Substanz</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <div class="section-kicker">Featured</div>
+        <h2>Wofür der Kanal steht.</h2>
+        <p class="section-intro">
+          Nicht jede Marktphase fühlt sich spektakulär an. Gerade dann zählt,
+          wie sauber jemand denkt, einordnet und handelt.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="identity-card reveal reveal-delay-1">
+          <div class="card-label">Analyse</div>
+          <h3>Marktphasen verstehen</h3>
+          <p>
+            Einordnung von Euphorie, Unsicherheit und Risiko – nicht aus Sicht der Masse,
+            sondern aus Sicht eines langfristigen Vermögensaufbaus.
+          </p>
+        </div>
+
+        <div class="identity-card reveal reveal-delay-2">
+          <div class="card-label">Dokumentation</div>
+          <h3>Entscheidungen sichtbar machen</h3>
+          <p>
+            Relevanz entsteht nicht durch perfekte Rückblicke,
+            sondern durch nachvollziehbare Entscheidungen im laufenden Markt.
+          </p>
+        </div>
+
+        <div class="identity-card reveal reveal-delay-3">
+          <div class="card-label">Prinzip</div>
+          <h3>Verstand mit Rückgrat</h3>
+          <p>
+            Ein Stil für Menschen, die sich nicht treiben lassen wollen,
+            sondern lernen möchten, Märkte und Vermögen sauber zu denken.
           </p>
         </div>
       </div>
 
-      <div class="cta-box">
+      <div class="cta-box reveal">
         <div class="cta-copy">
           <h3>Begleite den Weg öffentlich durch den Markt.</h3>
           <p>
@@ -1073,32 +1375,46 @@
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section reveal" id="about">
       <div class="section-head">
-        <div class="section-kicker">Wer dahinter steht</div>
+        <div class="section-kicker">Über mich</div>
         <h2>Kein Guru. Kein Verkäufer. Sondern im Spiel.</h2>
       </div>
 
-      <div class="about-box">
-        <p>Ich bin Anfang 20, arbeite Vollzeit und studiere parallel im Master.</p>
-        <p>
-          Ich beschäftige mich intensiv mit Marktzyklen, Kapitalmärkten und Vermögensaufbau –
-          nicht theoretisch, sondern praktisch.
-        </p>
-        <p>
-          Ich treffe Entscheidungen im echten Markt und dokumentiere sie transparent.
-        </p>
-        <p class="focus-line">
-          Mein Fokus: Klar denken. Rational handeln. Langfristig aufbauen.
-        </p>
-        <p class="muted">
-          Wenn du verstehen willst, wie Vermögen wirklich entsteht –
-          nicht wie es verkauft wird – begleite den Weg.
-        </p>
+      <div class="about-shell">
+        <div class="about-box reveal reveal-delay-1">
+          <p>Ich bin Anfang 20, arbeite Vollzeit und studiere parallel im Master.</p>
+          <p>
+            Ich beschäftige mich intensiv mit Marktzyklen, Kapitalmärkten und Vermögensaufbau –
+            nicht theoretisch, sondern praktisch.
+          </p>
+          <p>
+            Ich treffe Entscheidungen im echten Markt und dokumentiere sie transparent,
+            weil Vermögensaufbau verstanden und nicht verkauft werden sollte.
+          </p>
+          <p class="focus-line">
+            Mein Fokus: Klar denken. Rational handeln. Langfristig aufbauen.
+          </p>
+          <p class="muted">
+            Wenn du verstehen willst, wie Vermögen wirklich entsteht –
+            nicht wie es inszeniert wird – begleite den Weg.
+          </p>
+        </div>
+
+        <div class="quote-box reveal reveal-delay-2">
+          <div class="quote-text">
+            Verstand mit Rückgrat.
+          </div>
+          <div class="quote-sub">
+            Löwengeist verbindet Marktverständnis, Haltung und öffentliche Dokumentation.
+            Nicht für Menschen, die einem Guru folgen wollen – sondern für Menschen,
+            die lernen wollen, selbst klarer zu denken.
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer class="footer" id="kontakt">
+    <footer class="footer reveal" id="kontakt">
       <div class="footer-left">
         <div>© 2026 Löwengeist</div>
         <div>
@@ -1119,5 +1435,27 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach((el) => {
+      if (!el.classList.contains('is-visible')) {
+        observer.observe(el);
+      }
+    });
+  </script>
 </body>
 </html>
