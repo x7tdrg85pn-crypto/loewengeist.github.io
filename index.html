@@ -1249,35 +1249,107 @@
     }
 
     .footer {
-      margin-top: 90px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 120px;
+      padding-top: 34px;
+      position: relative;
+      border-top: none;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        rgba(245,166,35,0),
+        rgba(245,166,35,0.55),
+        rgba(255,255,255,0.18),
+        rgba(245,166,35,0.55),
+        rgba(245,166,35,0)
+      );
+    }
+
+    .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 40px;
       flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .footer-left {
+      max-width: 720px;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      color: var(--muted-2);
+    }
+
+    .footer-copy {
+      line-height: 1.7;
       color: var(--muted);
       font-size: 0.95rem;
     }
 
-    .footer-left {
-      max-width: 760px;
-      line-height: 1.78;
+    .footer-disclaimer {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted-2);
+      line-height: 1.7;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
     }
 
     .footer-links {
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
-      align-items: flex-start;
     }
 
     .footer-links a {
-      transition: color 0.2s ease;
+      position: relative;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: 0.25s ease;
+    }
+
+    .footer-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
     }
 
     .footer-links a:hover {
       color: var(--text);
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
     }
 
     .reveal {
@@ -1372,8 +1444,13 @@
         grid-template-columns: 1fr;
       }
 
-      .footer {
+      .footer-inner {
         flex-direction: column;
+        gap: 22px;
+      }
+
+      .footer-right {
+        align-items: flex-start;
       }
 
       .brand-sub {
@@ -1951,23 +2028,30 @@
     </section>
 
     <footer class="footer reveal" id="kontakt">
-      <div class="footer-left">
-        <div>© 2026 Löwengeist</div>
-        <div>
-          Alle Inhalte spiegeln meine persönliche Meinung wider und stellen
-          keine Anlageberatung dar.
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-brand">Löwengeist</div>
+          <div class="footer-copy">© 2026 Löwengeist</div>
+          <div class="footer-disclaimer">
+            Alle Inhalte spiegeln meine persönliche Meinung wider und stellen keine Anlageberatung dar.
+          </div>
         </div>
-      </div>
-      <div class="footer-links">
-        <a
-          href="https://www.youtube.com/@Loewengeist"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          YouTube
-        </a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+
+        <div class="footer-right">
+          <div class="footer-links">
+            <a
+              href="https://www.youtube.com/@Loewengeist"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YouTube
+            </a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
+
+          <div class="footer-tagline">Verstand mit Rückgrat</div>
+        </div>
       </div>
     </footer>
   </div>
