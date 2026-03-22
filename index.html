@@ -132,6 +132,18 @@
       align-items: center;
       gap: 14px;
       min-width: 0;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .brand:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .brand:focus-visible {
+      outline: 2px solid rgba(245,166,35,0.7);
+      outline-offset: 4px;
+      border-radius: 16px;
     }
 
     .brand-logo {
@@ -296,11 +308,6 @@
       color: var(--muted);
       line-height: 1.84;
       font-size: 1.03rem;
-    }
-
-    .hero-text:last-of-type {
-      opacity: 0.6;
-      font-size: 0.95rem;
     }
 
     .hero-actions {
@@ -1281,26 +1288,41 @@
     }
 
     .footer-left {
-      max-width: 720px;
+      max-width: 760px;
     }
 
     .footer-brand {
+      position: relative;
+      display: inline-block;
+      padding-top: 12px;
+      margin-bottom: 12px;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 8px;
-      font-size: 0.85rem;
-      color: var(--muted-2);
+      font-size: 0.92rem;
+      color: var(--text);
     }
 
-    .footer-copy {
-      line-height: 1.7;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .footer-brand::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 42px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), rgba(245,166,35,0.35));
+      border-radius: 999px;
     }
 
     .footer-disclaimer {
-      margin-top: 8px;
+      max-width: 620px;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .footer-copy {
+      margin-top: 10px;
       font-size: 0.9rem;
       color: var(--muted-2);
       line-height: 1.7;
@@ -1309,7 +1331,7 @@
     .footer-right {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       align-items: flex-end;
     }
 
@@ -1323,7 +1345,7 @@
       position: relative;
       color: var(--muted);
       font-size: 0.95rem;
-      transition: 0.25s ease;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
 
     .footer-links a::after {
@@ -1339,6 +1361,7 @@
 
     .footer-links a:hover {
       color: var(--text);
+      transform: translateY(-1px);
     }
 
     .footer-links a:hover::after {
@@ -1347,7 +1370,7 @@
 
     .footer-tagline {
       font-size: 0.8rem;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted-2);
     }
@@ -1531,7 +1554,8 @@
       .allocation,
       .nav-links a,
       .nav-cta,
-      .video-thumb-image {
+      .video-thumb-image,
+      .brand {
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
@@ -1540,16 +1564,16 @@
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="page" id="top">
     <div class="nav-wrap">
       <header class="nav">
-        <div class="brand">
+        <a class="brand" href="#top" aria-label="Zurück nach oben">
           <img class="brand-logo" src="logo.png" alt="Löwengeist Logo" />
           <div class="brand-text">
             <div class="brand-name">Löwengeist</div>
             <div class="brand-sub">Verstand mit Rückgrat</div>
           </div>
-        </div>
+        </a>
 
         <nav class="nav-links">
           <a href="#portfolio">Portfolio</a>
@@ -2030,10 +2054,12 @@
     <footer class="footer reveal" id="kontakt">
       <div class="footer-inner">
         <div class="footer-left">
-          <div class="footer-brand">Löwengeist</div>
-          <div class="footer-copy">© 2026 Löwengeist</div>
+          <div class="footer-brand">LÖWENGEIST</div>
           <div class="footer-disclaimer">
-            Alle Inhalte spiegeln meine persönliche Meinung wider und stellen keine Anlageberatung dar.
+            Öffentlicher Vermögensaufbau. Klare Entscheidungen. Kein Hype.
+          </div>
+          <div class="footer-copy">
+            © 2026 Löwengeist · Alle Inhalte stellen keine Anlageberatung dar.
           </div>
         </div>
 
