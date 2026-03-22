@@ -902,6 +902,128 @@
       color: var(--muted);
     }
 
+    .section-featured {
+      margin-top: 42px;
+      padding: 0;
+    }
+
+    .featured-shell {
+      position: relative;
+      padding: 92px 40px 42px;
+      border-radius: 38px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02)),
+        radial-gradient(circle at 18% 12%, rgba(245,166,35,0.12), transparent 34%),
+        radial-gradient(circle at 82% 88%, rgba(255,255,255,0.06), transparent 34%);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 42px 120px rgba(0,0,0,0.42);
+      isolation: isolate;
+    }
+
+    .featured-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 22%, transparent 78%, rgba(0,0,0,0.12));
+      z-index: -1;
+    }
+
+    .featured-head {
+      max-width: 920px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .featured-head .section-kicker {
+      margin-bottom: 14px;
+    }
+
+    .featured-head h2 {
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+    }
+
+    .featured-intro {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 860px;
+      font-size: 1.08rem;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .featured-card {
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+    }
+
+    .featured-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+    }
+
+    .featured-divider {
+      position: relative;
+      height: 42px;
+      margin: 26px 0 18px;
+    }
+
+    .featured-divider::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 20px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        rgba(245,166,35,0),
+        rgba(245,166,35,0.55),
+        rgba(255,255,255,0.16),
+        rgba(245,166,35,0.55),
+        rgba(245,166,35,0)
+      );
+    }
+
+    .featured-divider::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      transform: translateX(-50%);
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(245,166,35,0.10);
+    }
+
+    .featured-cta {
+      margin-top: 0;
+      background:
+        linear-gradient(180deg, rgba(245,166,35,0.18), rgba(255,255,255,0.04));
+      border: 1px solid rgba(245,166,35,0.28);
+      box-shadow: 0 30px 80px rgba(245,166,35,0.12);
+    }
+
+    .featured-cta .cta-copy h3 {
+      font-size: 1.55rem;
+    }
+
     .about-shell {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -1084,7 +1206,8 @@
       .grid-2,
       .grid-3,
       .videos-grid,
-      .content-grid {
+      .content-grid,
+      .featured-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1101,6 +1224,10 @@
 
       .content-connector {
         display: none;
+      }
+
+      .featured-shell {
+        padding: 74px 28px 28px;
       }
     }
 
@@ -1176,6 +1303,20 @@
       .content-topline {
         margin-bottom: 20px;
       }
+
+      .featured-shell {
+        padding: 62px 22px 22px;
+        border-radius: 30px;
+      }
+
+      .featured-head h2 {
+        font-size: clamp(2.3rem, 10vw, 3.4rem);
+      }
+
+      .featured-divider {
+        height: 26px;
+        margin: 20px 0 14px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1219,6 +1360,7 @@
           <a href="#why">Warum Löwengeist</a>
           <a href="#content">Inhalte</a>
           <a href="#videos">Videos</a>
+          <a href="#principles">Prinzipien</a>
           <a href="#about">Über mich</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
@@ -1547,61 +1689,66 @@
       </div>
     </section>
 
-    <section class="section reveal">
-      <div class="section-head">
-        <div class="section-kicker">Featured</div>
-        <h2>Wofür der Kanal steht.</h2>
-        <p class="section-intro">
-          Nicht jede Marktphase fühlt sich spektakulär an. Gerade dann zählt,
-          wie sauber jemand denkt, einordnet und handelt.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <div class="identity-card reveal reveal-delay-1">
-          <div class="card-label">Analyse</div>
-          <h3>Marktphasen verstehen</h3>
-          <p>
-            Einordnung von Euphorie, Unsicherheit und Risiko – nicht aus Sicht der Masse,
-            sondern aus Sicht eines langfristigen Vermögensaufbaus.
+    <section class="section section-featured reveal" id="principles">
+      <div class="featured-shell">
+        <div class="featured-head">
+          <div class="section-kicker">Prinzipien</div>
+          <h2>Wofür Löwengeist steht.</h2>
+          <p class="section-intro featured-intro">
+            Kein Lärm. Keine Inszenierung. Keine Abkürzung.
+            Sondern klare Einordnung, sichtbare Entscheidungen und ein Stil,
+            der Märkte und Vermögensaufbau mit Haltung betrachtet.
           </p>
         </div>
 
-        <div class="identity-card reveal reveal-delay-2">
-          <div class="card-label">Dokumentation</div>
-          <h3>Entscheidungen sichtbar machen</h3>
-          <p>
-            Relevanz entsteht nicht durch perfekte Rückblicke,
-            sondern durch nachvollziehbare Entscheidungen im laufenden Markt.
-          </p>
+        <div class="featured-grid">
+          <div class="identity-card featured-card reveal reveal-delay-1">
+            <div class="card-label">Analyse</div>
+            <h3>Marktphasen verstehen</h3>
+            <p>
+              Einordnung von Euphorie, Unsicherheit und Risiko – nicht aus Sicht der Masse,
+              sondern aus Sicht eines langfristigen Vermögensaufbaus.
+            </p>
+          </div>
+
+          <div class="identity-card featured-card reveal reveal-delay-2">
+            <div class="card-label">Dokumentation</div>
+            <h3>Entscheidungen sichtbar machen</h3>
+            <p>
+              Relevanz entsteht nicht durch perfekte Rückblicke,
+              sondern durch nachvollziehbare Entscheidungen im laufenden Markt.
+            </p>
+          </div>
+
+          <div class="identity-card featured-card reveal reveal-delay-3">
+            <div class="card-label">Prinzip</div>
+            <h3>Verstand mit Rückgrat</h3>
+            <p>
+              Ein Stil für Menschen, die sich nicht treiben lassen wollen,
+              sondern lernen möchten, Märkte und Vermögen sauber zu denken.
+            </p>
+          </div>
         </div>
 
-        <div class="identity-card reveal reveal-delay-3">
-          <div class="card-label">Prinzip</div>
-          <h3>Verstand mit Rückgrat</h3>
-          <p>
-            Ein Stil für Menschen, die sich nicht treiben lassen wollen,
-            sondern lernen möchten, Märkte und Vermögen sauber zu denken.
-          </p>
-        </div>
-      </div>
+        <div class="featured-divider" aria-hidden="true"></div>
 
-      <div class="cta-box reveal">
-        <div class="cta-copy">
-          <h3>Begleite den Weg öffentlich durch den Markt.</h3>
-          <p>
-            Auf YouTube teile ich Gedanken, Entscheidungen und Marktphasen
-            in Echtzeit – klar, nüchtern und ohne Inszenierung.
-          </p>
+        <div class="cta-box featured-cta reveal">
+          <div class="cta-copy">
+            <h3>Begleite den Weg öffentlich durch den Markt.</h3>
+            <p>
+              Auf YouTube teile ich Gedanken, Entscheidungen und Marktphasen in Echtzeit –
+              klar, nüchtern und ohne Inszenierung.
+            </p>
+          </div>
+          <a
+            class="btn btn-primary"
+            href="https://www.youtube.com/@Loewengeist"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zu Löwengeist auf YouTube
+          </a>
         </div>
-        <a
-          class="btn btn-primary"
-          href="https://www.youtube.com/@Loewengeist"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Zu Löwengeist auf YouTube
-        </a>
       </div>
     </section>
 
