@@ -35,6 +35,7 @@
       --accent-hover: #e5961b;
       --accent-soft: rgba(245, 166, 35, 0.14);
       --success: #9fd7c5;
+      --danger: #ff9c9c;
       --shadow-xl: 0 40px 120px rgba(0, 0, 0, 0.42);
       --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.26);
       --shadow-md: 0 16px 38px rgba(0, 0, 0, 0.18);
@@ -641,7 +642,12 @@
     .why-card::before,
     .feature-card::before,
     .identity-card::before,
-    .video-card::before {
+    .video-card::before,
+    .portfolio-progress-card::before,
+    .portfolio-live-card::before,
+    .portfolio-rules-card::before,
+    .portfolio-table-card::before,
+    .portfolio-chart-card::before {
       content: "";
       position: absolute;
       inset: 0 auto auto 0;
@@ -684,6 +690,434 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.76;
+    }
+
+    /* PORTFOLIO SECTION */
+    .portfolio-stage {
+      margin-top: 14px;
+      padding: 34px;
+      border-radius: 34px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(10px);
+      isolation: isolate;
+    }
+
+    .portfolio-stage::before {
+      content: "";
+      position: absolute;
+      left: -90px;
+      top: -90px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(245,166,35,0.12), transparent 72%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .portfolio-stage::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -80px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06), transparent 72%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .portfolio-topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 22px;
+      align-items: end;
+      margin-top: 26px;
+    }
+
+    .portfolio-progress-card,
+    .portfolio-live-card,
+    .portfolio-rules-card,
+    .portfolio-table-card,
+    .portfolio-chart-card {
+      position: relative;
+      padding: 26px;
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .portfolio-progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-progress-title,
+    .portfolio-live-title,
+    .portfolio-rules-title,
+    .portfolio-table-title,
+    .portfolio-chart-title {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.28rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .portfolio-progress-title {
+      font-size: 1.35rem;
+    }
+
+    .portfolio-progress-badge {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(159,215,197,0.10);
+      border: 1px solid rgba(159,215,197,0.22);
+      color: var(--success);
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .portfolio-progress-values {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .portfolio-progress-main {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .portfolio-progress-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .portfolio-progress-side {
+      text-align: right;
+    }
+
+    .portfolio-progress-side .label,
+    .portfolio-live-stat .label {
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .portfolio-progress-side .value,
+    .portfolio-live-stat .value {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .portfolio-progress-bar {
+      height: 14px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 10px;
+    }
+
+    .portfolio-progress-fill {
+      height: 100%;
+      width: 23.4%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f8b53a 0%, #f5a623 70%, #9fd7c5 100%);
+      box-shadow: 0 8px 22px rgba(245,166,35,0.22);
+    }
+
+    .portfolio-progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted-2);
+      font-size: 0.9rem;
+    }
+
+    .portfolio-progress-meta strong {
+      color: var(--text);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .portfolio-rules-head,
+    .portfolio-live-head,
+    .portfolio-table-head,
+    .portfolio-chart-head {
+      margin-bottom: 18px;
+    }
+
+    .portfolio-card-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .portfolio-rules-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .portfolio-rule {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .portfolio-rule-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245,166,35,0.14);
+      border: 1px solid rgba(245,166,35,0.22);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .portfolio-rule-text {
+      color: var(--text);
+      line-height: 1.68;
+    }
+
+    .portfolio-live-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .portfolio-live-stat {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .portfolio-live-note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(159,215,197,0.08);
+      border: 1px solid rgba(159,215,197,0.16);
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .portfolio-table-wrap {
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .portfolio-table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    .portfolio-table th,
+    .portfolio-table td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.95rem;
+    }
+
+    .portfolio-table th {
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .portfolio-table td {
+      color: var(--text);
+    }
+
+    .portfolio-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .portfolio-action-buy {
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .portfolio-action-sell {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .portfolio-chart-card {
+      margin-top: 22px;
+    }
+
+    .portfolio-chart-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 18px;
+    }
+
+    .portfolio-chart-wrap {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      padding: 18px 14px 44px 14px;
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+
+    .portfolio-chart-grid {
+      position: absolute;
+      inset: 18px 14px 44px 14px;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 100% 25%;
+      opacity: 0.35;
+    }
+
+    .portfolio-chart-svg {
+      position: absolute;
+      inset: 18px 14px 44px 14px;
+      width: calc(100% - 28px);
+      height: calc(100% - 62px);
+      overflow: visible;
+    }
+
+    .portfolio-chart-area {
+      fill: rgba(245,166,35,0.08);
+    }
+
+    .portfolio-chart-line {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 10px 16px rgba(245,166,35,0.16));
+    }
+
+    .portfolio-chart-point {
+      fill: #07171b;
+      stroke: var(--accent);
+      stroke-width: 2.5;
+      cursor: pointer;
+      transition: transform 0.2s ease, fill 0.2s ease;
+      transform-origin: center;
+    }
+
+    .portfolio-chart-point:hover,
+    .portfolio-chart-point.is-active {
+      transform: scale(1.18);
+      fill: var(--accent);
+    }
+
+    .portfolio-chart-labels {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      color: var(--muted-2);
+      font-size: 0.8rem;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .portfolio-chart-tooltip {
+      position: absolute;
+      min-width: 150px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(4, 14, 16, 0.94);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+      backdrop-filter: blur(10px);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, -110%);
+      transition: opacity 0.18s ease;
+      z-index: 5;
+    }
+
+    .portfolio-chart-tooltip.is-visible {
+      opacity: 1;
+    }
+
+    .portfolio-chart-tooltip .month {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted-2);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .portfolio-chart-tooltip .value {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .portfolio-chart-tooltip .change {
+      font-size: 0.88rem;
+      color: var(--muted);
     }
 
     .content-stage {
@@ -1400,7 +1834,9 @@
       .videos-grid,
       .content-grid,
       .featured-grid,
-      .about-premium-grid {
+      .about-premium-grid,
+      .portfolio-topbar,
+      .portfolio-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1459,11 +1895,18 @@
       .identity-card,
       .video-card,
       .cta-box,
-      .content-stage {
+      .content-stage,
+      .portfolio-stage,
+      .portfolio-progress-card,
+      .portfolio-live-card,
+      .portfolio-rules-card,
+      .portfolio-table-card,
+      .portfolio-chart-card {
         padding: 22px;
       }
 
-      .portfolio-stats {
+      .portfolio-stats,
+      .portfolio-live-stats {
         grid-template-columns: 1fr;
       }
 
@@ -1536,6 +1979,14 @@
       .about-focus-box {
         padding: 16px;
       }
+
+      .portfolio-chart-wrap {
+        height: 260px;
+      }
+
+      .portfolio-chart-labels {
+        font-size: 0.72rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1555,7 +2006,9 @@
       .nav-links a,
       .nav-cta,
       .video-thumb-image,
-      .brand {
+      .brand,
+      .portfolio-chart-point,
+      .portfolio-chart-tooltip {
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
@@ -1696,27 +2149,212 @@
         <div class="section-kicker">Road to 100k</div>
         <h2>Öffentlich. Nachvollziehbar. Echt.</h2>
         <p class="section-intro">
-          Ich dokumentiere meinen Vermögensaufbau nicht im Nachhinein,
-          sondern im laufenden Markt. Genau das macht den Unterschied.
+          Kein Rückblick und keine nachträgliche Glättung. Hier wird ein Portfolio
+          im laufenden Markt aufgebaut – mit klaren Spielregeln, sichtbaren Entscheidungen
+          und offenem Fortschritt Richtung 100.000 €.
         </p>
       </div>
 
-      <div class="grid-2">
-        <div class="panel reveal reveal-delay-1">
-          <div class="card-label">01 · Inhalt</div>
-          <h3>Was du hier siehst</h3>
-          <p>
-            Echte Entscheidungen, echte Gewichtungen und echte Gedankengänge –
-            nicht nachträglich geglättet und nicht schön umgeschrieben.
-          </p>
+      <div class="portfolio-stage">
+        <div class="portfolio-topbar">
+          <div class="portfolio-progress-card reveal reveal-delay-1">
+            <div class="portfolio-progress-head">
+              <div class="portfolio-progress-title">Portfolio-Fortschritt</div>
+              <div class="portfolio-progress-badge">Live · Kein Fake</div>
+            </div>
+
+            <div class="portfolio-progress-values">
+              <div>
+                <div class="portfolio-progress-main">23.400 €</div>
+                <div class="portfolio-progress-sub">Aktueller öffentlicher Stand</div>
+              </div>
+
+              <div class="portfolio-progress-side">
+                <div class="label">Ziel</div>
+                <div class="value">100.000 €</div>
+              </div>
+            </div>
+
+            <div class="portfolio-progress-bar" aria-hidden="true">
+              <div class="portfolio-progress-fill"></div>
+            </div>
+
+            <div class="portfolio-progress-meta">
+              <div>Fortschritt: <strong>23,4%</strong></div>
+              <div>Performance seit Start: <strong>+2.240%</strong></div>
+            </div>
+          </div>
+
+          <div class="portfolio-live-card reveal reveal-delay-2">
+            <div class="portfolio-live-head">
+              <div class="portfolio-card-kicker">Live Snapshot</div>
+              <div class="portfolio-live-title">Öffentliches System</div>
+            </div>
+
+            <div class="portfolio-live-stats">
+              <div class="portfolio-live-stat">
+                <div class="label">Startkapital</div>
+                <div class="value">1.000 €</div>
+              </div>
+              <div class="portfolio-live-stat">
+                <div class="label">Monatlich verfügbar</div>
+                <div class="value">500 €</div>
+              </div>
+              <div class="portfolio-live-stat">
+                <div class="label">Ziel</div>
+                <div class="value">100.000 €</div>
+              </div>
+              <div class="portfolio-live-stat">
+                <div class="label">Letztes Update</div>
+                <div class="value">April 2026</div>
+              </div>
+            </div>
+
+            <div class="portfolio-live-note">
+              Dieses Portfolio soll nicht perfekt aussehen, sondern nachvollziehbar sein.
+              Entscheidungen werden im echten Markt dokumentiert – nicht erst dann,
+              wenn sie im Nachhinein gut wirken.
+            </div>
+          </div>
         </div>
-        <div class="panel reveal reveal-delay-2">
-          <div class="card-label">02 · Abgrenzung</div>
-          <h3>Was du hier nicht bekommst</h3>
-          <p>
-            Keine Signale, kein künstlicher Hype und keine Fantasie von schnellen Gewinnen.
-            Sondern eine rationale Einordnung von Risiko, Timing und Disziplin.
-          </p>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-rules-card reveal reveal-delay-1">
+            <div class="portfolio-rules-head">
+              <div class="portfolio-card-kicker">Spielregeln</div>
+              <div class="portfolio-rules-title">Wie dieses Portfolio geführt wird</div>
+            </div>
+
+            <div class="portfolio-rules-list">
+              <div class="portfolio-rule">
+                <div class="portfolio-rule-num">01</div>
+                <div class="portfolio-rule-text">
+                  Das Startkapital für das öffentliche Portfolio beträgt <strong>1.000 €</strong>.
+                </div>
+              </div>
+
+              <div class="portfolio-rule">
+                <div class="portfolio-rule-num">02</div>
+                <div class="portfolio-rule-text">
+                  Monatlich stehen <strong>500 €</strong> zur Verfügung, die nicht sofort investiert werden müssen.
+                </div>
+              </div>
+
+              <div class="portfolio-rule">
+                <div class="portfolio-rule-num">03</div>
+                <div class="portfolio-rule-text">
+                  Es wird <strong>nicht getradet</strong>. Fokus liegt auf strukturiertem Vermögensaufbau statt kurzfristiger Aktion.
+                </div>
+              </div>
+
+              <div class="portfolio-rule">
+                <div class="portfolio-rule-num">04</div>
+                <div class="portfolio-rule-text">
+                  Entscheidungen dürfen bewusst <strong>antizyklisch</strong> erfolgen, wenn Marktphase und Bewertung es rechtfertigen.
+                </div>
+              </div>
+
+              <div class="portfolio-rule">
+                <div class="portfolio-rule-num">05</div>
+                <div class="portfolio-rule-text">
+                  Das langfristige Ziel des öffentlichen Portfolios liegt bei <strong>100.000 €</strong>.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-table-card reveal reveal-delay-2">
+            <div class="portfolio-table-head">
+              <div class="portfolio-card-kicker">Transaktionen</div>
+              <div class="portfolio-table-title">Bisherige Käufe & Verkäufe</div>
+            </div>
+
+            <div class="portfolio-table-wrap">
+              <table class="portfolio-table">
+                <thead>
+                  <tr>
+                    <th>Kaufdatum</th>
+                    <th>Aktion</th>
+                    <th>Asset</th>
+                    <th>Menge</th>
+                    <th>Kurs</th>
+                    <th>Preis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>05.04.2026</td>
+                    <td class="portfolio-action-buy">Kauf</td>
+                    <td>Bitcoin</td>
+                    <td>0,015</td>
+                    <td>65.472 $</td>
+                    <td>50 €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-chart-card reveal">
+          <div class="portfolio-chart-head">
+            <div class="portfolio-card-kicker">Entwicklung</div>
+            <div class="portfolio-chart-title">Wertentwicklung seit Start</div>
+          </div>
+
+          <div class="portfolio-chart-meta">
+            <div>Monatlicher Verlauf des öffentlichen Portfolios</div>
+            <div>Hover über Punkte für Monatswerte</div>
+          </div>
+
+          <div class="portfolio-chart-wrap" id="portfolioChart">
+            <div class="portfolio-chart-grid"></div>
+
+            <svg class="portfolio-chart-svg" viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true">
+              <path
+                class="portfolio-chart-area"
+                d="M 0 200
+                   L 0 186
+                   L 120 176
+                   L 240 158
+                   L 360 124
+                   L 480 88
+                   L 600 42
+                   L 600 200 Z"></path>
+
+              <polyline
+                class="portfolio-chart-line"
+                points="0,186 120,176 240,158 360,124 480,88 600,42"></polyline>
+
+              <circle class="portfolio-chart-point" cx="0" cy="186" r="6"
+                data-month="Nov 2025" data-value="1.000 €" data-change="Start" />
+              <circle class="portfolio-chart-point" cx="120" cy="176" r="6"
+                data-month="Dez 2025" data-value="1.450 €" data-change="+45,0%" />
+              <circle class="portfolio-chart-point" cx="240" cy="158" r="6"
+                data-month="Jan 2026" data-value="2.300 €" data-change="+58,6%" />
+              <circle class="portfolio-chart-point" cx="360" cy="124" r="6"
+                data-month="Feb 2026" data-value="4.100 €" data-change="+78,3%" />
+              <circle class="portfolio-chart-point" cx="480" cy="88" r="6"
+                data-month="Mrz 2026" data-value="8.900 €" data-change="+117,1%" />
+              <circle class="portfolio-chart-point" cx="600" cy="42" r="6"
+                data-month="Apr 2026" data-value="23.400 €" data-change="+162,9%" />
+            </svg>
+
+            <div class="portfolio-chart-labels">
+              <span>Nov</span>
+              <span>Dez</span>
+              <span>Jan</span>
+              <span>Feb</span>
+              <span>Mrz</span>
+              <span>Apr</span>
+            </div>
+
+            <div class="portfolio-chart-tooltip" id="portfolioTooltip">
+              <div class="month"></div>
+              <div class="value"></div>
+              <div class="change"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2122,6 +2760,56 @@
         thumb.appendChild(iframe);
       });
     });
+
+    const chart = document.getElementById('portfolioChart');
+    const tooltip = document.getElementById('portfolioTooltip');
+    const points = chart ? chart.querySelectorAll('.portfolio-chart-point') : [];
+
+    function showTooltip(point) {
+      if (!chart || !tooltip || !point) return;
+
+      const month = point.dataset.month || '';
+      const value = point.dataset.value || '';
+      const change = point.dataset.change || '';
+
+      tooltip.querySelector('.month').textContent = month;
+      tooltip.querySelector('.value').textContent = value;
+      tooltip.querySelector('.change').textContent = change;
+
+      const chartRect = chart.getBoundingClientRect();
+      const pointRect = point.getBoundingClientRect();
+
+      const left = pointRect.left - chartRect.left;
+      const top = pointRect.top - chartRect.top;
+
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${top}px`;
+      tooltip.classList.add('is-visible');
+
+      points.forEach((p) => p.classList.remove('is-active'));
+      point.classList.add('is-active');
+    }
+
+    function hideTooltip() {
+      if (!tooltip) return;
+      tooltip.classList.remove('is-visible');
+      points.forEach((p) => p.classList.remove('is-active'));
+    }
+
+    points.forEach((point) => {
+      point.addEventListener('mouseenter', () => showTooltip(point));
+      point.addEventListener('focus', () => showTooltip(point));
+      point.addEventListener('mouseleave', hideTooltip);
+      point.addEventListener('blur', hideTooltip);
+
+      point.setAttribute('tabindex', '0');
+      point.setAttribute('role', 'button');
+      point.setAttribute('aria-label', `${point.dataset.month}: ${point.dataset.value}, ${point.dataset.change}`);
+    });
+
+    if (chart) {
+      chart.addEventListener('mouseleave', hideTooltip);
+    }
   </script>
 </body>
 </html>
