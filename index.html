@@ -540,7 +540,7 @@
       margin: 0;
       font-family: "Manrope", sans-serif;
       font-size: clamp(2.2rem, 4vw, 3.8rem);
-      line-height: 1.03;
+      line-height: 0.98;
       letter-spacing: -0.055em;
     }
 
@@ -677,6 +677,120 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.76;
+    }
+
+    .content-stage {
+      margin-top: 14px;
+      padding: 34px;
+      border-radius: 34px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.028));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(10px);
+      isolation: isolate;
+    }
+
+    .content-stage::before {
+      content: "";
+      position: absolute;
+      left: -80px;
+      top: -80px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(245,166,35,0.10), transparent 72%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .content-stage::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -70px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06), transparent 72%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .content-topline {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 18px 0 28px;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+
+    .content-topline::before,
+    .content-topline::after {
+      content: "";
+      height: 1px;
+      background: linear-gradient(90deg, rgba(245,166,35,0.65), rgba(255,255,255,0.10));
+      flex: 1;
+    }
+
+    .content-topline span {
+      white-space: nowrap;
+    }
+
+    .content-connector {
+      position: relative;
+      height: 24px;
+      margin: 0 10px 6px;
+    }
+
+    .content-connector::before {
+      content: "";
+      position: absolute;
+      top: 11px;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(245,166,35,0.55), rgba(255,255,255,0.15), rgba(245,166,35,0.55));
+    }
+
+    .content-connector::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(245,166,35,0.10);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 0;
+    }
+
+    .feature-card .feature-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .feature-chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+      color: var(--muted);
     }
 
     .videos-grid {
@@ -922,7 +1036,8 @@
       .about-shell,
       .grid-2,
       .grid-3,
-      .videos-grid {
+      .videos-grid,
+      .content-grid {
         grid-template-columns: 1fr;
       }
 
@@ -935,6 +1050,10 @@
         width: 360px;
         height: 360px;
         opacity: 0.04;
+      }
+
+      .content-connector {
+        display: none;
       }
     }
 
@@ -970,7 +1089,8 @@
       .video-card,
       .about-box,
       .quote-box,
-      .cta-box {
+      .cta-box,
+      .content-stage {
         padding: 22px;
       }
 
@@ -1004,6 +1124,10 @@
         height: 260px;
         right: -40px;
         top: 40px;
+      }
+
+      .content-topline {
+        margin-bottom: 20px;
       }
     }
 
@@ -1228,41 +1352,61 @@
     </section>
 
     <section class="section reveal" id="content">
-      <div class="section-head">
-        <div class="section-kicker">Inhalte</div>
-        <h2>Drei Säulen. Ein klarer Stil.</h2>
-        <p class="section-intro">
-          Löwengeist verbindet Marktverständnis, öffentlich dokumentierten Vermögensaufbau
-          und rationale Entscheidungslogik in einem klaren Format.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <div class="feature-card reveal reveal-delay-1">
-          <div class="card-label">01 · Marktzyklen</div>
-          <h3>Bitcoin, Marktphasen und Einordnung</h3>
-          <p>
-            Analysen zu Zyklen, Stimmung, Risiko und Kaufbereichen –
-            mit Fokus auf das, was relevant ist, nicht auf das, was am lautesten ist.
+      <div class="content-stage">
+        <div class="section-head">
+          <div class="section-kicker">Inhalte</div>
+          <h2>Drei Säulen. Ein klarer Stil.</h2>
+          <p class="section-intro">
+            Löwengeist verbindet Marktverständnis, öffentlich dokumentierten Vermögensaufbau
+            und rationale Entscheidungslogik in einem klaren Format.
           </p>
         </div>
 
-        <div class="feature-card reveal reveal-delay-2">
-          <div class="card-label">02 · Portfolio</div>
-          <h3>Road to 100k – öffentlich dokumentiert</h3>
-          <p>
-            Mein Portfolio ist kein Rückblick, sondern ein laufender Prozess.
-            Entscheidungen, Gewichtungen und Denkweise werden transparent gezeigt.
-          </p>
+        <div class="content-topline">
+          <span>3 Formate · 1 System</span>
         </div>
 
-        <div class="feature-card reveal reveal-delay-3">
-          <div class="card-label">03 · Haltung</div>
-          <h3>Rational handeln statt emotional reagieren</h3>
-          <p>
-            Löwengeist steht für finanzielle Selbstbestimmung,
-            antizyklisches Denken und eine klare Distanz zur Massenpsychologie.
-          </p>
+        <div class="content-connector" aria-hidden="true"></div>
+
+        <div class="content-grid">
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="card-label">01 · Marktzyklen</div>
+            <h3>Bitcoin, Marktphasen und Einordnung</h3>
+            <p>
+              Analysen zu Zyklen, Stimmung, Risiko und Kaufbereichen – mit Fokus auf das,
+              was relevant ist, nicht auf das, was am lautesten ist.
+            </p>
+            <div class="feature-meta">
+              <div class="feature-chip">Analyse</div>
+              <div class="feature-chip">Makro</div>
+            </div>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="card-label">02 · Portfolio</div>
+            <h3>Road to 100k – öffentlich dokumentiert</h3>
+            <p>
+              Mein Portfolio ist kein Rückblick, sondern ein laufender Prozess.
+              Entscheidungen, Gewichtungen und Denkweise werden transparent gezeigt.
+            </p>
+            <div class="feature-meta">
+              <div class="feature-chip">Dokumentation</div>
+              <div class="feature-chip">Transparenz</div>
+            </div>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-3">
+            <div class="card-label">03 · Haltung</div>
+            <h3>Rational handeln statt emotional reagieren</h3>
+            <p>
+              Löwengeist steht für finanzielle Selbstbestimmung, antizyklisches Denken
+              und eine klare Distanz zur Massenpsychologie.
+            </p>
+            <div class="feature-meta">
+              <div class="feature-chip">Prinzip</div>
+              <div class="feature-chip">Psychologie</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
