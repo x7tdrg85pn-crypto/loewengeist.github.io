@@ -1,100 +1,494 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Löwengeist</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Löwengeist</title>
+  <meta name="description" content="Löwengeist – Verstand mit Rückgrat. Öffentlicher Vermögensaufbau, Marktzyklen und rationale Entscheidungen." />
+  <style>
+    :root {
+      --bg: #0b2f34;
+      --bg-soft: #123d43;
+      --panel: rgba(255,255,255,0.06);
+      --panel-border: rgba(255,255,255,0.10);
+      --text: #f4f7f8;
+      --muted: rgba(244,247,248,0.72);
+      --accent: #f5a623;
+      --accent-hover: #db921d;
+      --max: 1180px;
+      --radius: 22px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.28);
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0F3A40;
-    color: white;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 80px 20px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(245,166,35,0.08), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.05), transparent 18%),
+        linear-gradient(180deg, #0a2a2f 0%, #0f3a40 45%, #0b2f34 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
 
-h2 {
-    margin-top: 60px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 28px 0 96px;
+    }
 
-.btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 30px;
-    background: #f5a623;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0 28px;
+    }
 
-.section {
-    margin-top: 80px;
-}
-</style>
+    .brand {
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+      padding: 36px 0 18px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .hero-sub {
+      margin: 26px 0 0;
+      font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+      color: var(--text);
+      max-width: 620px;
+      font-weight: 600;
+    }
+
+    .hero-text {
+      margin: 18px 0 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(245,166,35,0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -50px -50px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(245,166,35,0.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .card-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .portfolio-value {
+      font-size: clamp(2.3rem, 4vw, 3.3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .allocations {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .allocation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .allocation span:last-child {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 740px;
+      margin-top: 14px;
+      font-size: 1.02rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .principle {
+      padding: 22px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .principle-title {
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .principle-text {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .about-box {
+      margin-top: 26px;
+      padding: 34px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+    }
+
+    .about-box p {
+      margin: 0 0 18px;
+      font-size: 1.08rem;
+      color: var(--text);
+      max-width: 900px;
+    }
+
+    .about-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 68px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-2,
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .page {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .about-box,
+      .panel,
+      .hero-card {
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <header class="nav">
+      <div class="brand">Löwengeist</div>
+      <nav class="nav-links">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">Über mich</a>
+        <a href="#kontakt">YouTube</a>
+      </nav>
+    </header>
 
-<div class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Verstand mit Rückgrat</div>
+        <h1>Löwengeist 🦁</h1>
+        <p class="hero-sub">Ich baue öffentlich ein Krypto-Portfolio auf – mit echten Entscheidungen, klarer Strategie und ohne Illusionen.</p>
+        <p class="hero-text">Kein Hype. Keine Show. Sondern rationaler Vermögensaufbau, transparent dokumentiert.</p>
 
-<h1>Löwengeist 🦁</h1>
-<p>Verstand mit Rückgrat.</p>
-<p>Ich baue öffentlich ein Krypto-Portfolio auf.</p>
-<p><strong>Echte Entscheidungen. Keine Illusionen.</strong></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://youtube.com" target="_blank" rel="noopener noreferrer">Road to 100k begleiten</a>
+          <a class="btn btn-secondary" href="#portfolio">Portfolio ansehen</a>
+        </div>
+      </div>
 
-<a class="btn" href="https://youtube.com">Road to 100k begleiten</a>
+      <aside class="hero-card">
+        <div class="card-label">Aktueller Stand</div>
+        <div class="portfolio-value">23.400 €</div>
+        <div class="muted">Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Klarheit, Disziplin und Marktzyklen.</div>
 
-<div class="section">
-<h2>Road to 100k</h2>
-<p>Ich dokumentiere meinen Vermögensaufbau öffentlich.</p>
-<p>Keine Theorie. Keine Rückblicke.</p>
-<p><strong>Echte Entscheidungen im Markt.</strong></p>
+        <div class="allocations">
+          <div class="allocation"><span>Bitcoin</span><span>80%</span></div>
+          <div class="allocation"><span>Ethereum</span><span>15%</span></div>
+          <div class="allocation"><span>Solana</span><span>5%</span></div>
+        </div>
+      </aside>
+    </section>
 
-<p><strong>Aktueller Stand:</strong> 23.400 €</p>
-<p><strong>Allokation:</strong><br>
-80% Bitcoin<br>
-15% Ethereum<br>
-5% Solana</p>
-</div>
+    <section class="section" id="portfolio">
+      <div class="section-head">
+        <div class="section-kicker">Road to 100k</div>
+        <h2>Öffentlich. Nachvollziehbar. Echt.</h2>
+        <p class="section-intro">Ich dokumentiere meinen Vermögensaufbau nicht im Rückblick, sondern im echten Markt. Genau das ist der Unterschied.</p>
+      </div>
 
-<div class="section">
-<h2>Wer dahinter steht</h2>
-<p>Ich bin Anfang 20, arbeite Vollzeit und studiere parallel im Master.</p>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Was du hier siehst</h3>
+          <p>Echte Entscheidungen, echte Gewichtungen und echte Gedankengänge – nicht nachträglich glattgebügelt.</p>
+        </div>
+        <div class="panel">
+          <h3>Was du hier nicht bekommst</h3>
+          <p>Keine Signale, kein künstlicher Hype und keine Illusion von schnellen Gewinnen.</p>
+        </div>
+      </div>
 
-<p>Ich beschäftige mich intensiv mit Marktzyklen, Kapitalmärkten und Vermögensaufbau – nicht theoretisch, sondern praktisch.</p>
+      <div class="principles">
+        <div class="principle">
+          <div class="principle-title">Antizyklisch denken</div>
+          <div class="principle-text">Relevante Entscheidungen entstehen selten in Euphorie, sondern in Phasen der Unsicherheit.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Risiko verstehen</div>
+          <div class="principle-text">Vermögensaufbau bedeutet nicht nur Chance, sondern vor allem saubere Einordnung von Risiko.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Langfristig aufbauen</div>
+          <div class="principle-text">Nicht jeder Marktzyklus macht reich. Aber klare Regeln schaffen über Zeit echte Substanz.</div>
+        </div>
+      </div>
+    </section>
 
-<p>Ich treffe Entscheidungen im echten Markt und dokumentiere sie transparent.</p>
+    <section class="section" id="about">
+      <div class="section-head">
+        <div class="section-kicker">Wer dahinter steht</div>
+        <h2>Kein Guru. Kein Verkäufer. Sondern im Spiel.</h2>
+      </div>
 
-<p><strong>Mein Fokus:</strong><br>
-Klar denken. Rational handeln. Langfristig aufbauen.</p>
+      <div class="about-box">
+        <p>Ich bin Anfang 20, arbeite Vollzeit und studiere parallel im Master.</p>
+        <p>Ich beschäftige mich intensiv mit Marktzyklen, Kapitalmärkten und Vermögensaufbau – nicht theoretisch, sondern praktisch.</p>
+        <p>Ich treffe Entscheidungen im echten Markt und dokumentiere sie transparent. Mein Fokus liegt auf klarem Denken, rationalem Handeln und langfristigem Aufbau.</p>
+        <p class="muted">Wenn du verstehen willst, wie Vermögen wirklich entsteht – nicht wie es verkauft wird – begleite den Weg.</p>
+      </div>
+    </section>
 
-<p>Keine schnellen Gewinne.<br>
-Kein Hype.<br>
-Sondern Strategie.</p>
-</div>
-
-<div class="section">
-<p>© 2026 Löwengeist</p>
-<p>Alle Inhalte stellen keine Anlageberatung dar.</p>
-</div>
-
-</div>
-
+    <footer class="footer" id="kontakt">
+      <div>
+        <div>© 2026 Löwengeist</div>
+        <div>Alle Inhalte spiegeln meine persönliche Meinung wider und stellen keine Anlageberatung dar.</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
