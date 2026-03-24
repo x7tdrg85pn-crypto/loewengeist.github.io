@@ -1,0 +1,63 @@
+{
+  "currentValue": 23400,
+  "startCapital": 1000,
+  "goal": 100000,
+  "monthlyBudget": 500,
+  "openBudget": 450,
+  "lastUpdate": "April 2026",
+  "performanceSinceStart": 2240,
+  "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Disziplin, Marktzyklen und rationale Entscheidungen statt kurzfristiger Emotionen.",
+  "allocations": [
+    {
+      "name": "Bitcoin",
+      "percent": 80,
+      "color": "linear-gradient(180deg, #f8b53a 0%, #f5a623 100%)"
+    },
+    {
+      "name": "Ethereum",
+      "percent": 15,
+      "color": "rgba(255,255,255,0.58)"
+    },
+    {
+      "name": "Solana",
+      "percent": 5,
+      "color": "rgba(159,215,197,0.92)"
+    }
+  ],
+  "transactions": [
+    {
+      "date": "05.04.2026",
+      "type": "Kauf",
+      "asset": "Bitcoin",
+      "amount": "0,015",
+      "rate": "65.472 $",
+      "price": "50 €"
+    }
+  ],
+  "chartData": [
+    {
+      "month": "Nov",
+      "value": 1000
+    },
+    {
+      "month": "Dez",
+      "value": 1450
+    },
+    {
+      "month": "Jan",
+      "value": 2300
+    },
+    {
+      "month": "Feb",
+      "value": 4100
+    },
+    {
+      "month": "Mrz",
+      "value": 8900
+    },
+    {
+      "month": "Apr",
+      "value": 23400
+    }
+  ]
+}
