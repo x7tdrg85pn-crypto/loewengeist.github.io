@@ -501,9 +501,10 @@
       width: 100%;
     }
 
-    .btc { width: 80%; background: linear-gradient(180deg, #f8b53a 0%, #f5a623 100%); }
-    .eth { width: 15%; background: rgba(255,255,255,0.58); }
-    .sol { width: 5%; background: rgba(159,215,197,0.92); }
+    .allocation-segment {
+      height: 100%;
+      display: block;
+    }
 
     .allocations {
       display: grid;
@@ -569,59 +570,11 @@
       max-width: 770px;
     }
 
-    .grid-2,
     .grid-3 {
       display: grid;
       gap: 20px;
-      margin-top: 24px;
-    }
-
-    .grid-2 {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .grid-3 {
       grid-template-columns: repeat(3, 1fr);
       margin-top: 18px;
-    }
-
-    .panel {
-      padding: 26px;
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(10px);
-      transition: 0.22s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(245,166,35,0.9), transparent 70%);
-    }
-
-    .panel:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.14);
-      background: var(--surface-2);
-    }
-
-    .panel h3 {
-      margin: 0 0 10px;
-      font-size: 1.16rem;
-      letter-spacing: -0.02em;
-    }
-
-    .panel p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.78;
     }
 
     .why-card,
@@ -686,10 +639,6 @@
       color: var(--muted);
       line-height: 1.76;
     }
-
-    /* =========================
-       PORTFOLIO PREMIUM
-    ========================= */
 
     .portfolio-premium {
       margin-top: 24px;
@@ -873,11 +822,12 @@
 
     .portfolio-progress-fill {
       height: 100%;
-      width: 23.4%;
+      width: 0%;
       border-radius: 999px;
       background:
         linear-gradient(90deg, #f5a623 0%, #f8b53a 68%, rgba(159,215,197,0.95) 100%);
       box-shadow: 0 0 28px rgba(245,166,35,0.22);
+      transition: width 0.45s ease;
     }
 
     .portfolio-progress-meta {
@@ -983,6 +933,10 @@
       color: var(--text);
     }
 
+    .transaction-sell {
+      color: var(--danger);
+    }
+
     .portfolio-chart-card {
       padding: 28px 28px 24px;
       min-height: auto;
@@ -1072,7 +1026,6 @@
       font-weight: 600;
     }
 
-    /* Inhalte */
     .content-stage {
       margin-top: 14px;
       padding: 34px;
@@ -1187,7 +1140,6 @@
       color: var(--muted);
     }
 
-    /* Videos */
     .videos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1297,7 +1249,6 @@
       color: var(--muted);
     }
 
-    /* Prinzipien */
     .section-featured {
       margin-top: 42px;
       padding: 0;
@@ -1448,7 +1399,6 @@
       line-height: 1.75;
     }
 
-    /* About */
     .section-about-premium {
       padding-top: 78px;
     }
@@ -1673,7 +1623,6 @@
       font-size: 0.98rem;
     }
 
-    /* Footer */
     .footer {
       margin-top: 120px;
       padding-top: 34px;
@@ -1794,7 +1743,6 @@
       color: var(--muted-2);
     }
 
-    /* Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -1815,7 +1763,6 @@
 
     @media (max-width: 1100px) {
       .hero,
-      .grid-2,
       .grid-3,
       .videos-grid,
       .content-grid,
@@ -1883,7 +1830,6 @@
       }
 
       .hero-card,
-      .panel,
       .why-card,
       .feature-card,
       .identity-card,
@@ -2004,7 +1950,6 @@
       .reveal,
       .reveal.is-visible,
       .btn,
-      .panel,
       .why-card,
       .feature-card,
       .identity-card,
@@ -2013,7 +1958,8 @@
       .nav-links a,
       .nav-cta,
       .video-thumb-image,
-      .brand {
+      .brand,
+      .portfolio-progress-fill {
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
@@ -2095,57 +2041,37 @@
         <div class="card-top">
           <div>
             <div class="card-kicker">Aktueller Stand</div>
-            <div class="portfolio-value">23.400 €</div>
+            <div class="portfolio-value" id="heroPortfolioValue">–</div>
           </div>
           <div class="status-pill">Live dokumentiert</div>
         </div>
 
-        <div class="portfolio-copy">
-          Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Disziplin,
-          Marktzyklen und rationale Entscheidungen statt kurzfristiger Emotionen.
-        </div>
+        <div class="portfolio-copy" id="heroPortfolioCopy"></div>
 
         <div class="portfolio-stats">
           <div class="stat">
             <div class="stat-label">Start</div>
-            <div class="stat-value">1.000 €</div>
+            <div class="stat-value" id="heroStartCapital">–</div>
           </div>
           <div class="stat">
             <div class="stat-label">Ziel</div>
-            <div class="stat-value">100.000 €</div>
+            <div class="stat-value" id="heroGoal">–</div>
           </div>
           <div class="stat">
             <div class="stat-label">Monatlich</div>
-            <div class="stat-value">500 €</div>
+            <div class="stat-value" id="heroMonthlyBudget">–</div>
           </div>
           <div class="stat">
             <div class="stat-label">Update</div>
-            <div class="stat-value">April 2026</div>
+            <div class="stat-value" id="heroUpdateMonth">–</div>
           </div>
         </div>
 
         <div class="portfolio-bar" aria-hidden="true">
-          <div class="portfolio-bar-fill">
-            <div class="btc"></div>
-            <div class="eth"></div>
-            <div class="sol"></div>
-          </div>
+          <div class="portfolio-bar-fill" id="heroAllocationBar"></div>
         </div>
 
-        <div class="allocations">
-          <div class="allocation">
-            <span class="allocation-name">Bitcoin</span>
-            <span class="allocation-value">80%</span>
-          </div>
-          <div class="allocation">
-            <span class="allocation-name">Ethereum</span>
-            <span class="allocation-value">15%</span>
-          </div>
-          <div class="allocation">
-            <span class="allocation-name">Solana</span>
-            <span class="allocation-value">5%</span>
-          </div>
-        </div>
+        <div class="allocations" id="heroAllocations"></div>
       </aside>
     </section>
 
@@ -2172,24 +2098,24 @@
 
               <div class="portfolio-stand">
                 <div>
-                  <div class="portfolio-stand-value">23.400 €</div>
+                  <div class="portfolio-stand-value" id="portfolioStandValue">–</div>
                   <div class="portfolio-stand-sub">Aktueller öffentlicher Stand</div>
                 </div>
                 <div class="portfolio-goal-block">
                   <div class="portfolio-goal-label">Ziel</div>
-                  <div class="portfolio-goal-value">100.000 €</div>
+                  <div class="portfolio-goal-value" id="portfolioGoalValue">–</div>
                 </div>
               </div>
 
               <div class="portfolio-progress-wrap">
                 <div class="portfolio-progress-bar" aria-hidden="true">
-                  <div class="portfolio-progress-fill"></div>
+                  <div class="portfolio-progress-fill" id="portfolioProgressFill"></div>
                 </div>
 
                 <div class="portfolio-progress-meta">
-                  <div>Fortschritt: <strong>23,4%</strong></div>
-                  <div>Performance seit Start: <strong>+2.240%</strong></div>
-                  <div>Offenes Budget: <strong>450 €</strong></div>
+                  <div>Fortschritt: <strong id="portfolioProgressText">–</strong></div>
+                  <div>Performance seit Start: <strong id="portfolioPerformanceText">–</strong></div>
+                  <div>Offenes Budget: <strong id="portfolioOpenBudgetText">–</strong></div>
                 </div>
               </div>
             </div>
@@ -2201,23 +2127,23 @@
               <div class="portfolio-grid-stats">
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Startkapital</div>
-                  <div class="portfolio-mini-value">1.000 €</div>
+                  <div class="portfolio-mini-value" id="snapshotStartCapital">–</div>
                 </div>
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Monatlich verfügbar</div>
-                  <div class="portfolio-mini-value">500 €</div>
+                  <div class="portfolio-mini-value" id="snapshotMonthlyBudget">–</div>
                 </div>
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Ziel</div>
-                  <div class="portfolio-mini-value">100.000 €</div>
+                  <div class="portfolio-mini-value" id="snapshotGoal">–</div>
                 </div>
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Offenes Budget</div>
-                  <div class="portfolio-mini-value">450 €</div>
+                  <div class="portfolio-mini-value" id="snapshotOpenBudget">–</div>
                 </div>
                 <div class="portfolio-mini-stat" style="grid-column: 1 / -1;">
                   <div class="portfolio-mini-label">Letztes Update</div>
-                  <div class="portfolio-mini-value">April 2026</div>
+                  <div class="portfolio-mini-value" id="snapshotLastUpdate">–</div>
                 </div>
               </div>
 
@@ -2237,14 +2163,14 @@
                 <div class="portfolio-rule">
                   <div class="portfolio-rule-index">01</div>
                   <div class="portfolio-rule-text">
-                    Das Startkapital für das öffentliche Portfolio beträgt <strong>1.000 €</strong>.
+                    Das Startkapital für das öffentliche Portfolio beträgt <strong id="ruleStartCapital">–</strong>.
                   </div>
                 </div>
 
                 <div class="portfolio-rule">
                   <div class="portfolio-rule-index">02</div>
                   <div class="portfolio-rule-text">
-                    Monatlich stehen <strong>500 €</strong> zur Verfügung, die nicht sofort investiert werden müssen.
+                    Monatlich stehen <strong id="ruleMonthlyBudget">–</strong> zur Verfügung, die nicht sofort investiert werden müssen.
                   </div>
                 </div>
 
@@ -2265,7 +2191,7 @@
                 <div class="portfolio-rule">
                   <div class="portfolio-rule-index">05</div>
                   <div class="portfolio-rule-text">
-                    Das langfristige Ziel des öffentlichen Portfolios liegt bei <strong>100.000 €</strong>.
+                    Das langfristige Ziel des öffentlichen Portfolios liegt bei <strong id="ruleGoal">–</strong>.
                   </div>
                 </div>
               </div>
@@ -2287,16 +2213,7 @@
                       <th>Preis</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>05.04.2026</td>
-                      <td class="transaction-type transaction-buy">Kauf</td>
-                      <td>Bitcoin</td>
-                      <td>0,015</td>
-                      <td>65.472 $</td>
-                      <td>50 €</td>
-                    </tr>
-                  </tbody>
+                  <tbody id="transactionsBody"></tbody>
                 </table>
               </div>
             </div>
@@ -2695,6 +2612,8 @@
   </div>
 
   <script>
+    let portfolioData = null;
+
     const revealElements = document.querySelectorAll('.reveal');
 
     const observer = new IntersectionObserver((entries) => {
@@ -2735,17 +2654,104 @@
       });
     });
 
-    /* =========================
-       PORTFOLIO CHART
-    ========================= */
-    const portfolioChartData = [
-      { month: 'Nov', value: 1000 },
-      { month: 'Dez', value: 1450 },
-      { month: 'Jan', value: 2300 },
-      { month: 'Feb', value: 4100 },
-      { month: 'Mrz', value: 8900 },
-      { month: 'Apr', value: 23400 }
-    ];
+    function formatEuro(value) {
+      return new Intl.NumberFormat('de-DE', {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+
+    function formatPercent(value, digits = 1) {
+      return `${Number(value).toFixed(digits).replace('.', ',')}%`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function renderMainPortfolioData() {
+      const progressPercent = (portfolioData.currentValue / portfolioData.goal) * 100;
+
+      document.getElementById('heroPortfolioValue').textContent = formatEuro(portfolioData.currentValue);
+      document.getElementById('heroPortfolioCopy').textContent = portfolioData.heroDescription;
+      document.getElementById('heroStartCapital').textContent = formatEuro(portfolioData.startCapital);
+      document.getElementById('heroGoal').textContent = formatEuro(portfolioData.goal);
+      document.getElementById('heroMonthlyBudget').textContent = formatEuro(portfolioData.monthlyBudget);
+      document.getElementById('heroUpdateMonth').textContent = portfolioData.lastUpdate;
+
+      document.getElementById('portfolioStandValue').textContent = formatEuro(portfolioData.currentValue);
+      document.getElementById('portfolioGoalValue').textContent = formatEuro(portfolioData.goal);
+      document.getElementById('portfolioProgressText').textContent = formatPercent(progressPercent, 1);
+      document.getElementById('portfolioPerformanceText').textContent = `+${new Intl.NumberFormat('de-DE').format(portfolioData.performanceSinceStart)}%`;
+      document.getElementById('portfolioOpenBudgetText').textContent = formatEuro(portfolioData.openBudget);
+
+      document.getElementById('snapshotStartCapital').textContent = formatEuro(portfolioData.startCapital);
+      document.getElementById('snapshotMonthlyBudget').textContent = formatEuro(portfolioData.monthlyBudget);
+      document.getElementById('snapshotGoal').textContent = formatEuro(portfolioData.goal);
+      document.getElementById('snapshotOpenBudget').textContent = formatEuro(portfolioData.openBudget);
+      document.getElementById('snapshotLastUpdate').textContent = portfolioData.lastUpdate;
+
+      document.getElementById('ruleStartCapital').textContent = formatEuro(portfolioData.startCapital);
+      document.getElementById('ruleMonthlyBudget').textContent = formatEuro(portfolioData.monthlyBudget);
+      document.getElementById('ruleGoal').textContent = formatEuro(portfolioData.goal);
+
+      document.getElementById('portfolioProgressFill').style.width = `${Math.min(progressPercent, 100)}%`;
+    }
+
+    function renderAllocations() {
+      const heroAllocations = document.getElementById('heroAllocations');
+      const heroAllocationBar = document.getElementById('heroAllocationBar');
+
+      heroAllocations.innerHTML = portfolioData.allocations.map((item) => `
+        <div class="allocation">
+          <span class="allocation-name">${escapeHtml(item.name)}</span>
+          <span class="allocation-value">${escapeHtml(item.percent)}%</span>
+        </div>
+      `).join('');
+
+      heroAllocationBar.innerHTML = portfolioData.allocations.map((item) => `
+        <span
+          class="allocation-segment"
+          style="width:${item.percent}%; background:${item.color};"
+          title="${escapeHtml(item.name)} ${escapeHtml(item.percent)}%"
+        ></span>
+      `).join('');
+    }
+
+    function renderTransactions() {
+      const tbody = document.getElementById('transactionsBody');
+
+      if (!portfolioData.transactions.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="color: var(--muted);">Noch keine Transaktionen eingetragen.</td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = portfolioData.transactions.map((tx) => {
+        const isSell = String(tx.type).toLowerCase().includes('verkauf');
+        const typeClass = isSell ? 'transaction-sell' : 'transaction-buy';
+
+        return `
+          <tr>
+            <td>${escapeHtml(tx.date)}</td>
+            <td class="transaction-type ${typeClass}">${escapeHtml(tx.type)}</td>
+            <td>${escapeHtml(tx.asset)}</td>
+            <td>${escapeHtml(tx.amount)}</td>
+            <td>${escapeHtml(tx.rate)}</td>
+            <td>${escapeHtml(tx.price)}</td>
+          </tr>
+        `;
+      }).join('');
+    }
 
     const svg = document.getElementById('portfolioChart');
     const tooltip = document.getElementById('chartTooltip');
@@ -2754,16 +2760,16 @@
     const chartShell = document.getElementById('portfolioChartShell');
     const axisLabels = document.getElementById('chartAxisLabels');
 
-    function euroFormat(value) {
-      return new Intl.NumberFormat('de-DE', {
-        style: 'currency',
-        currency: 'EUR',
-        maximumFractionDigits: 0
-      }).format(value);
-    }
-
     function buildPortfolioChart() {
-      if (!svg || !tooltip || !chartShell || !axisLabels) return;
+      if (!svg || !tooltip || !chartShell || !axisLabels || !portfolioData) return;
+
+      const chartData = portfolioData.chartData;
+
+      if (!chartData.length) {
+        svg.innerHTML = '';
+        axisLabels.innerHTML = '';
+        return;
+      }
 
       const width = 1100;
       const height = 380;
@@ -2771,18 +2777,18 @@
       const chartWidth = width - padding.left - padding.right;
       const chartHeight = height - padding.top - padding.bottom;
 
-      const values = portfolioChartData.map(d => d.value);
+      const values = chartData.map(d => d.value);
       const minValue = Math.min(...values);
       const maxValue = Math.max(...values);
       const range = Math.max(maxValue - minValue, 1);
       const paddedMin = Math.max(0, minValue - range * 0.15);
       const paddedMax = maxValue + range * 0.18;
 
-      const xStep = chartWidth / (portfolioChartData.length - 1);
+      const xStep = chartData.length > 1 ? chartWidth / (chartData.length - 1) : 0;
 
-      const points = portfolioChartData.map((d, i) => {
+      const points = chartData.map((d, i) => {
         const x = padding.left + (xStep * i) + 14;
-        const normalized = (d.value - paddedMin) / (paddedMax - paddedMin);
+        const normalized = (d.value - paddedMin) / (paddedMax - paddedMin || 1);
         const y = padding.top + (chartHeight - (normalized * chartHeight));
         return { ...d, x, y };
       });
@@ -2822,7 +2828,7 @@
         `).join('')}
       `;
 
-      axisLabels.innerHTML = portfolioChartData.map(d => `<span>${d.month}</span>`).join('');
+      axisLabels.innerHTML = chartData.map(d => `<span>${escapeHtml(d.month)}</span>`).join('');
 
       const pointGroups = svg.querySelectorAll('.chart-point-group');
 
@@ -2830,13 +2836,12 @@
         const point = points[index];
 
         const showTooltip = () => {
-          const shellRect = chartShell.getBoundingClientRect();
           const svgRect = svg.getBoundingClientRect();
           const relativeX = ((point.x / width) * svgRect.width);
           const relativeY = ((point.y / height) * svgRect.height);
 
           tooltipMonth.textContent = point.month;
-          tooltipValue.textContent = euroFormat(point.value);
+          tooltipValue.textContent = formatEuro(point.value);
           tooltip.style.left = `${relativeX}px`;
           tooltip.style.top = `${relativeY}px`;
           tooltip.classList.add('is-visible');
@@ -2852,7 +2857,29 @@
       });
     }
 
-    buildPortfolioChart();
+    async function loadPortfolioData() {
+      try {
+        const response = await fetch('./data.json', { cache: 'no-store' });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        portfolioData = await response.json();
+
+        renderMainPortfolioData();
+        renderAllocations();
+        renderTransactions();
+        buildPortfolioChart();
+      } catch (error) {
+        console.error('Fehler beim Laden von data.json:', error);
+
+        document.getElementById('heroPortfolioCopy').textContent =
+          'Portfolio-Daten konnten gerade nicht geladen werden.';
+      }
+    }
+
+    loadPortfolioData();
     window.addEventListener('resize', buildPortfolioChart);
   </script>
 </body>
