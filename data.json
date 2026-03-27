@@ -1,63 +1,42 @@
 {
-  "currentValue": 0,
-  "startCapital": 1000,
   "goal": 100000,
+  "startCapital": 1000,
   "monthlyBudget": 500,
-  "openBudget": 1450,
+  "openBudget": 1468,
   "lastUpdate": "April 2026",
-  "performanceSinceStart": 0,
-  "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Disziplin, Marktzyklen und rationale Entscheidungen statt kurzfristiger Emotionen.",
+  "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Marktzyklen, antizyklisches Denken und rationale Entscheidungen im echten Markt.",
+
+  "marketPrices": {
+    "Bitcoin": 65472
+  },
+
   "allocations": [
     {
       "name": "Bitcoin",
-      "percent": 0,
-      "color": "linear-gradient(180deg, #f8b53a 0%, #f5a623 100%)"
+      "color": "#f5a623"
     },
     {
-      "name": "Ethereum",
-      "percent": 0,
-      "color": "rgba(255,255,255,0.58)"
-    },
-    {
-      "name": "Solana",
-      "percent": 0,
-      "color": "rgba(159,215,197,0.92)"
+      "name": "Cash",
+      "color": "rgba(255,255,255,0.22)"
     }
   ],
+
   "transactions": [
     {
       "date": "05.04.2026",
       "type": "Kauf",
       "asset": "Bitcoin",
-      "amount": "0,015",
-      "rate": "65.472 $",
-      "price": "50 €"
+      "amount": 0.0015,
+      "price": 982.08
     }
   ],
+
   "chartData": [
-    {
-      "month": "Mrz",
-      "value": 0
-    },
-    {
-      "month": "Apr",
-      "value": 50
-    },
-    {
-      "month": "Mai",
-      "value": 50
-    },
-    {
-      "month": "Jun",
-      "value": 50
-    },
-    {
-      "month": "Jul",
-      "value": 50
-    },
-    {
-      "month": "Aug",
-      "value": 50
-    }
+    { "month": "Mrz", "value": 0 },
+    { "month": "Apr", "value": 50 },
+    { "month": "Mai", "value": 50 },
+    { "month": "Jun", "value": 50 },
+    { "month": "Jul", "value": 50 },
+    { "month": "Aug", "value": 50 }
   ]
 }
