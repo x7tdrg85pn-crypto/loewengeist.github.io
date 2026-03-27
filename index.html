@@ -766,22 +766,6 @@
       color: var(--text);
     }
 
-    .portfolio-progress-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .portfolio-progress-title {
-      font-family: "Manrope", sans-serif;
-      font-size: 1.45rem;
-      letter-spacing: -0.04em;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
     .portfolio-live-badge {
       padding: 10px 12px;
       border-radius: 999px;
@@ -791,83 +775,6 @@
       font-size: 0.8rem;
       font-weight: 700;
       white-space: nowrap;
-    }
-
-    .portfolio-stand {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: end;
-      margin-top: 8px;
-    }
-
-    .portfolio-stand-value {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(3rem, 4vw, 4.5rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      font-weight: 800;
-    }
-
-    .portfolio-stand-sub {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .portfolio-goal-block {
-      text-align: right;
-      min-width: 120px;
-    }
-
-    .portfolio-goal-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted-2);
-      font-weight: 700;
-      margin-bottom: 7px;
-    }
-
-    .portfolio-goal-value {
-      font-size: 1.1rem;
-      font-weight: 800;
-    }
-
-    .portfolio-progress-wrap {
-      margin-top: 18px;
-    }
-
-    .portfolio-progress-bar {
-      height: 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .portfolio-progress-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      background:
-        linear-gradient(90deg, #f5a623 0%, #f8b53a 68%, rgba(159,215,197,0.95) 100%);
-      box-shadow: 0 0 28px rgba(245,166,35,0.22);
-      transition: width 0.45s ease;
-    }
-
-    .portfolio-progress-meta {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 14px;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .portfolio-progress-meta strong {
-      color: var(--text);
     }
 
     .portfolio-rules-list {
@@ -911,56 +818,76 @@
       color: var(--text);
     }
 
-    .transactions-table-wrap {
+    .transactions-feed {
       margin-top: 18px;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.025);
+      display: grid;
+      gap: 14px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .transactions-table th,
-    .transactions-table td {
+    .transaction-feed-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
       padding: 18px 20px;
-      text-align: left;
-      vertical-align: middle;
-    }
-
-    .transactions-table th {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted-2);
+      border-radius: 18px;
       background: rgba(255,255,255,0.045);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.22s ease;
+    }
+
+    .transaction-feed-item:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .transaction-feed-left {
+      display: grid;
+      gap: 4px;
+    }
+
+    .transaction-feed-asset {
       font-weight: 800;
+      font-size: 1.02rem;
     }
 
-    .transactions-table td {
-      color: var(--text);
-      font-size: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
+    .transaction-feed-date {
+      color: var(--muted);
+      font-size: 0.88rem;
     }
 
-    .transactions-table tbody tr:first-child td {
-      border-top: none;
+    .transaction-feed-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .transaction-type {
-      font-weight: 800;
+    .transaction-badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
     }
 
-    .transaction-buy {
-      color: var(--text);
+    .transaction-badge-buy {
+      background: rgba(159,215,197,0.15);
+      color: var(--success);
     }
 
-    .transaction-sell {
+    .transaction-badge-sell {
+      background: rgba(240,163,163,0.15);
       color: var(--danger);
+    }
+
+    .transaction-amount {
+      font-weight: 800;
+    }
+
+    .transaction-price {
+      color: var(--muted);
+      font-weight: 600;
     }
 
     .portfolio-chart-card {
@@ -1847,15 +1774,6 @@
       .about-values-side {
         grid-template-rows: auto auto;
       }
-
-      .portfolio-goal-block {
-        text-align: left;
-      }
-
-      .portfolio-stand {
-        grid-template-columns: 1fr;
-        align-items: start;
-      }
     }
 
     @media (max-width: 760px) {
@@ -1969,12 +1887,6 @@
         padding: 16px;
       }
 
-      .transactions-table th,
-      .transactions-table td {
-        padding: 14px 12px;
-        font-size: 0.92rem;
-      }
-
       .chart-shell {
         padding: 16px 10px 12px;
       }
@@ -1992,6 +1904,10 @@
         height: 42px;
         flex-basis: 42px;
         font-size: 1.1rem;
+      }
+
+      .transaction-feed-item {
+        padding: 16px;
       }
     }
 
@@ -2012,7 +1928,7 @@
       .nav-cta,
       .video-thumb-image,
       .brand,
-      .portfolio-progress-fill {
+      .transaction-feed-item {
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
@@ -2143,33 +2059,62 @@
         <div class="portfolio-layout">
           <div class="portfolio-row">
             <div class="portfolio-card reveal reveal-delay-1">
-              <div class="portfolio-progress-top">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;">
                 <div>
-                  <div class="portfolio-progress-title">Portfolio-Fortschritt</div>
+                  <div class="card-label">Portfolio-Fortschritt</div>
+
+                  <div
+                    id="portfolioStandValue"
+                    style="font-family:'Manrope', sans-serif; font-size:clamp(3.2rem,4vw,4.8rem); font-weight:800; letter-spacing:-0.05em; line-height:0.95;"
+                  >
+                    –
+                  </div>
+
+                  <div style="margin-top:6px; color:var(--muted);">
+                    Aktueller öffentlicher Stand
+                  </div>
+
+                  <div style="margin-top:18px; display:flex; gap:14px; flex-wrap:wrap;">
+                    <div class="feature-chip">Start: <strong id="snapshotStartCapital">–</strong></div>
+                    <div class="feature-chip">Monatlich: <strong id="snapshotMonthlyBudget">–</strong></div>
+                    <div class="feature-chip">Offenes Budget: <strong id="snapshotOpenBudget">–</strong></div>
+                  </div>
                 </div>
-                <div class="portfolio-live-badge">Live</div>
+
+                <div style="text-align:right; min-width:140px;">
+                  <div style="font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted-2); font-weight:700;">
+                    Ziel
+                  </div>
+
+                  <div style="font-size:1.2rem; font-weight:800;" id="portfolioGoalValue">–</div>
+
+                  <div style="margin-top:12px;" class="portfolio-live-badge">Live</div>
+                </div>
               </div>
 
-              <div class="portfolio-stand">
-                <div>
-                  <div class="portfolio-stand-value" id="portfolioStandValue">–</div>
-                  <div class="portfolio-stand-sub">Aktueller öffentlicher Stand</div>
-                </div>
-                <div class="portfolio-goal-block">
-                  <div class="portfolio-goal-label">Ziel</div>
-                  <div class="portfolio-goal-value" id="portfolioGoalValue">–</div>
-                </div>
-              </div>
-
-              <div class="portfolio-progress-wrap">
-                <div class="portfolio-progress-bar" aria-hidden="true">
-                  <div class="portfolio-progress-fill" id="portfolioProgressFill"></div>
+              <div style="margin-top:28px;">
+                <div style="height:18px; border-radius:999px; background:rgba(255,255,255,0.06); overflow:hidden; border:1px solid rgba(255,255,255,0.08);">
+                  <div
+                    id="portfolioProgressFill"
+                    style="
+                      height:100%;
+                      width:0%;
+                      background:linear-gradient(90deg,#f5a623 0%,#f8b53a 70%,rgba(159,215,197,0.9) 100%);
+                      box-shadow:0 0 35px rgba(245,166,35,0.35);
+                      transition: width 0.6s ease;
+                    "
+                  ></div>
                 </div>
 
-                <div class="portfolio-progress-meta">
+                <div style="margin-top:14px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:var(--muted);">
                   <div>Fortschritt: <strong id="portfolioProgressText">–</strong></div>
-                  <div>Performance seit Start: <strong id="portfolioPerformanceText">–</strong></div>
+                  <div>Performance: <strong id="portfolioPerformanceText">–</strong></div>
                   <div>Offenes Budget: <strong id="portfolioOpenBudgetText">–</strong></div>
+                </div>
+
+                <div style="margin-top:16px; color:var(--muted); line-height:1.7;">
+                  Noch <strong id="remainingToGoal">–</strong> bis zum Ziel.
+                  Der Aufbau läuft öffentlich – im echten Markt, ohne Rückblick.
                 </div>
               </div>
             </div>
@@ -2181,11 +2126,11 @@
               <div class="portfolio-grid-stats">
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Startkapital</div>
-                  <div class="portfolio-mini-value" id="snapshotStartCapital">–</div>
+                  <div class="portfolio-mini-value" id="snapshotStartCapitalMirror">–</div>
                 </div>
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Monatlich verfügbar</div>
-                  <div class="portfolio-mini-value" id="snapshotMonthlyBudget">–</div>
+                  <div class="portfolio-mini-value" id="snapshotMonthlyBudgetMirror">–</div>
                 </div>
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Ziel</div>
@@ -2193,7 +2138,7 @@
                 </div>
                 <div class="portfolio-mini-stat">
                   <div class="portfolio-mini-label">Offenes Budget</div>
-                  <div class="portfolio-mini-value" id="snapshotOpenBudget">–</div>
+                  <div class="portfolio-mini-value" id="snapshotOpenBudgetMirror">–</div>
                 </div>
                 <div class="portfolio-mini-stat" style="grid-column: 1 / -1;">
                   <div class="portfolio-mini-label">Letztes Update</div>
@@ -2254,22 +2199,7 @@
             <div class="portfolio-card reveal reveal-delay-2">
               <div class="card-label">Transaktionen</div>
               <h3>Bisherige Käufe & Verkäufe</h3>
-
-              <div class="transactions-table-wrap">
-                <table class="transactions-table">
-                  <thead>
-                    <tr>
-                      <th>Kaufdatum</th>
-                      <th>Aktion</th>
-                      <th>Asset</th>
-                      <th>Menge</th>
-                      <th>Kurs</th>
-                      <th>Preis</th>
-                    </tr>
-                  </thead>
-                  <tbody id="transactionsBody"></tbody>
-                </table>
-              </div>
+              <div id="transactionsFeed" class="transactions-feed"></div>
             </div>
           </div>
 
@@ -2728,7 +2658,7 @@
         style: 'currency',
         currency: 'EUR',
         maximumFractionDigits: 0
-      }).format(value);
+      }).format(Number(value) || 0);
     }
 
     function formatPercent(value, digits = 1) {
@@ -2744,82 +2674,179 @@
         .replaceAll("'", '&#039;');
     }
 
+    function calculatePortfolioTotals() {
+      const holdings = {};
+
+      portfolioData.transactions.forEach((tx) => {
+        const asset = tx.asset;
+        const amount = Number(tx.amount);
+        const type = String(tx.type).toLowerCase();
+
+        if (!holdings[asset]) {
+          holdings[asset] = 0;
+        }
+
+        if (type.includes('verkauf')) {
+          holdings[asset] -= amount;
+        } else {
+          holdings[asset] += amount;
+        }
+      });
+
+      let currentAssetValue = 0;
+
+      Object.entries(holdings).forEach(([asset, amount]) => {
+        const marketPrice = Number(portfolioData.marketPrices?.[asset] || 0);
+        currentAssetValue += amount * marketPrice;
+      });
+
+      const currentValue = currentAssetValue + Number(portfolioData.openBudget || 0);
+      const performanceSinceStart =
+        Number(portfolioData.startCapital) > 0
+          ? ((currentValue - Number(portfolioData.startCapital)) / Number(portfolioData.startCapital)) * 100
+          : 0;
+
+      return {
+        holdings,
+        currentAssetValue,
+        currentValue,
+        performanceSinceStart
+      };
+    }
+
+    function buildDynamicAllocations(holdings, currentValue) {
+      const allocationSource = [];
+
+      Object.entries(holdings).forEach(([asset, amount]) => {
+        const marketPrice = Number(portfolioData.marketPrices?.[asset] || 0);
+        const value = amount * marketPrice;
+
+        if (value > 0) {
+          const colorEntry = (portfolioData.allocations || []).find((item) => item.name === asset);
+          allocationSource.push({
+            name: asset,
+            value,
+            color: colorEntry ? colorEntry.color : '#f5a623'
+          });
+        }
+      });
+
+      if (Number(portfolioData.openBudget || 0) > 0) {
+        const cashColorEntry = (portfolioData.allocations || []).find((item) => item.name === 'Cash');
+        allocationSource.push({
+          name: 'Cash',
+          value: Number(portfolioData.openBudget),
+          color: cashColorEntry ? cashColorEntry.color : 'rgba(255,255,255,0.22)'
+        });
+      }
+
+      return allocationSource.map((item) => ({
+        ...item,
+        percent: currentValue > 0 ? (item.value / currentValue) * 100 : 0
+      }));
+    }
+
     function renderMainPortfolioData() {
-      const progressPercent = (portfolioData.currentValue / portfolioData.goal) * 100;
-      const performanceNumber = Number(portfolioData.performanceSinceStart) || 0;
-      const performancePrefix = performanceNumber > 0 ? '+' : '';
+      const {
+        holdings,
+        currentValue,
+        performanceSinceStart
+      } = calculatePortfolioTotals();
 
-      document.getElementById('heroPortfolioValue').textContent = formatEuro(portfolioData.currentValue);
-      document.getElementById('heroPortfolioCopy').textContent = portfolioData.heroDescription;
+      const goal = Number(portfolioData.goal || 0);
+      const openBudget = Number(portfolioData.openBudget || 0);
+      const progressPercent = goal > 0 ? (currentValue / goal) * 100 : 0;
+      const remaining = Math.max(goal - currentValue, 0);
+      const performancePrefix = performanceSinceStart > 0 ? '+' : '';
+
+      document.getElementById('heroPortfolioValue').textContent = formatEuro(currentValue);
+      document.getElementById('heroPortfolioCopy').textContent = portfolioData.heroDescription || '';
       document.getElementById('heroStartCapital').textContent = formatEuro(portfolioData.startCapital);
-      document.getElementById('heroGoal').textContent = formatEuro(portfolioData.goal);
+      document.getElementById('heroGoal').textContent = formatEuro(goal);
       document.getElementById('heroMonthlyBudget').textContent = formatEuro(portfolioData.monthlyBudget);
-      document.getElementById('heroUpdateMonth').textContent = portfolioData.lastUpdate;
+      document.getElementById('heroUpdateMonth').textContent = portfolioData.lastUpdate || '–';
 
-      document.getElementById('portfolioStandValue').textContent = formatEuro(portfolioData.currentValue);
-      document.getElementById('portfolioGoalValue').textContent = formatEuro(portfolioData.goal);
+      document.getElementById('portfolioStandValue').textContent = formatEuro(currentValue);
+      document.getElementById('portfolioGoalValue').textContent = formatEuro(goal);
       document.getElementById('portfolioProgressText').textContent = formatPercent(progressPercent, 1);
-      document.getElementById('portfolioPerformanceText').textContent = `${performancePrefix}${String(performanceNumber).replace('.', ',')}%`;
-      document.getElementById('portfolioOpenBudgetText').textContent = formatEuro(portfolioData.openBudget);
+      document.getElementById('portfolioPerformanceText').textContent =
+        `${performancePrefix}${Number(performanceSinceStart).toFixed(1).replace('.', ',')}%`;
+      document.getElementById('portfolioOpenBudgetText').textContent = formatEuro(openBudget);
+      document.getElementById('remainingToGoal').textContent = formatEuro(remaining);
 
       document.getElementById('snapshotStartCapital').textContent = formatEuro(portfolioData.startCapital);
       document.getElementById('snapshotMonthlyBudget').textContent = formatEuro(portfolioData.monthlyBudget);
-      document.getElementById('snapshotGoal').textContent = formatEuro(portfolioData.goal);
-      document.getElementById('snapshotOpenBudget').textContent = formatEuro(portfolioData.openBudget);
-      document.getElementById('snapshotLastUpdate').textContent = portfolioData.lastUpdate;
+      document.getElementById('snapshotOpenBudget').textContent = formatEuro(openBudget);
+
+      document.getElementById('snapshotStartCapitalMirror').textContent = formatEuro(portfolioData.startCapital);
+      document.getElementById('snapshotMonthlyBudgetMirror').textContent = formatEuro(portfolioData.monthlyBudget);
+      document.getElementById('snapshotGoal').textContent = formatEuro(goal);
+      document.getElementById('snapshotOpenBudgetMirror').textContent = formatEuro(openBudget);
+      document.getElementById('snapshotLastUpdate').textContent = portfolioData.lastUpdate || '–';
 
       document.getElementById('ruleStartCapital').textContent = formatEuro(portfolioData.startCapital);
       document.getElementById('ruleMonthlyBudget').textContent = formatEuro(portfolioData.monthlyBudget);
-      document.getElementById('ruleGoal').textContent = formatEuro(portfolioData.goal);
+      document.getElementById('ruleGoal').textContent = formatEuro(goal);
 
       document.getElementById('portfolioProgressFill').style.width = `${Math.min(progressPercent, 100)}%`;
+
+      const dynamicAllocations = buildDynamicAllocations(holdings, currentValue);
+      renderAllocations(dynamicAllocations);
     }
 
-    function renderAllocations() {
+    function renderAllocations(dynamicAllocations) {
       const heroAllocations = document.getElementById('heroAllocations');
       const heroAllocationBar = document.getElementById('heroAllocationBar');
 
-      heroAllocations.innerHTML = portfolioData.allocations.map((item) => `
+      heroAllocations.innerHTML = dynamicAllocations.map((item) => `
         <div class="allocation">
           <span class="allocation-name">${escapeHtml(item.name)}</span>
-          <span class="allocation-value">${escapeHtml(item.percent)}%</span>
+          <span class="allocation-value">${item.percent.toFixed(1).replace('.', ',')}%</span>
         </div>
       `).join('');
 
-      heroAllocationBar.innerHTML = portfolioData.allocations.map((item) => `
+      heroAllocationBar.innerHTML = dynamicAllocations.map((item) => `
         <span
           class="allocation-segment"
           style="width:${item.percent}%; background:${item.color};"
-          title="${escapeHtml(item.name)} ${escapeHtml(item.percent)}%"
+          title="${escapeHtml(item.name)} ${item.percent.toFixed(1).replace('.', ',')}%"
         ></span>
       `).join('');
     }
 
     function renderTransactions() {
-      const tbody = document.getElementById('transactionsBody');
+      const container = document.getElementById('transactionsFeed');
+      if (!container) return;
 
-      if (!portfolioData.transactions.length) {
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="6" style="color: var(--muted);">Noch keine Transaktionen eingetragen.</td>
-          </tr>
+      const transactions = Array.isArray(portfolioData.transactions) ? portfolioData.transactions : [];
+
+      if (!transactions.length) {
+        container.innerHTML = `
+          <div style="color: var(--muted); padding:18px;">
+            Noch keine Transaktionen eingetragen.
+          </div>
         `;
         return;
       }
 
-      tbody.innerHTML = portfolioData.transactions.map((tx) => {
+      container.innerHTML = transactions.map((tx) => {
         const isSell = String(tx.type).toLowerCase().includes('verkauf');
-        const typeClass = isSell ? 'transaction-sell' : 'transaction-buy';
 
         return `
-          <tr>
-            <td>${escapeHtml(tx.date)}</td>
-            <td class="transaction-type ${typeClass}">${escapeHtml(tx.type)}</td>
-            <td>${escapeHtml(tx.asset)}</td>
-            <td>${escapeHtml(tx.amount)}</td>
-            <td>${escapeHtml(tx.rate)}</td>
-            <td>${escapeHtml(tx.price)}</td>
-          </tr>
+          <div class="transaction-feed-item">
+            <div class="transaction-feed-left">
+              <div class="transaction-feed-asset">${escapeHtml(tx.asset)}</div>
+              <div class="transaction-feed-date">${escapeHtml(tx.date)}</div>
+            </div>
+
+            <div class="transaction-feed-right">
+              <span class="transaction-badge ${isSell ? 'transaction-badge-sell' : 'transaction-badge-buy'}">
+                ${escapeHtml(tx.type)}
+              </span>
+              <span class="transaction-amount">${escapeHtml(String(tx.amount))}</span>
+              <span class="transaction-price">${formatEuro(tx.price)}</span>
+            </div>
+          </div>
         `;
       }).join('');
     }
@@ -2834,7 +2861,7 @@
     function buildPortfolioChart() {
       if (!svg || !tooltip || !chartShell || !axisLabels || !portfolioData) return;
 
-      const chartData = portfolioData.chartData;
+      const chartData = Array.isArray(portfolioData.chartData) ? portfolioData.chartData : [];
 
       if (!chartData.length) {
         svg.innerHTML = '';
@@ -2848,7 +2875,7 @@
       const chartWidth = width - padding.left - padding.right;
       const chartHeight = height - padding.top - padding.bottom;
 
-      const values = chartData.map(d => d.value);
+      const values = chartData.map(d => Number(d.value) || 0);
       const minValue = Math.min(...values);
       const maxValue = Math.max(...values);
       const range = Math.max(maxValue - minValue, 1);
@@ -2859,9 +2886,9 @@
 
       const points = chartData.map((d, i) => {
         const x = padding.left + (xStep * i) + 14;
-        const normalized = (d.value - paddedMin) / (paddedMax - paddedMin || 1);
+        const normalized = ((Number(d.value) || 0) - paddedMin) / (paddedMax - paddedMin || 1);
         const y = padding.top + (chartHeight - (normalized * chartHeight));
-        return { ...d, x, y };
+        return { ...d, x, y, value: Number(d.value) || 0 };
       });
 
       const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
@@ -2908,8 +2935,8 @@
 
         const showTooltip = () => {
           const svgRect = svg.getBoundingClientRect();
-          const relativeX = ((point.x / width) * svgRect.width);
-          const relativeY = ((point.y / height) * svgRect.height);
+          const relativeX = (point.x / width) * svgRect.width;
+          const relativeY = (point.y / height) * svgRect.height;
 
           tooltipMonth.textContent = point.month;
           tooltipValue.textContent = formatEuro(point.value);
@@ -2939,7 +2966,6 @@
         portfolioData = await response.json();
 
         renderMainPortfolioData();
-        renderAllocations();
         renderTransactions();
         buildPortfolioChart();
       } catch (error) {
