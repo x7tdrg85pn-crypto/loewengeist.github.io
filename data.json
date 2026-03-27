@@ -26,8 +26,8 @@
       "date": "05.04.2026",
       "type": "Kauf",
       "asset": "Bitcoin",
-      "amount": 0.015,
-      "price": 982.08
+      "amount": 0.00015,
+      "price": 50.08
     }
   ],
 
