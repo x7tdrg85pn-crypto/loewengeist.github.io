@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1192,42 +1194,41 @@
       display: none;
     }
 
+    .video-thumb-button {
+      appearance: none;
+      -webkit-appearance: none;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      text-align: inherit;
+      z-index: 2;
+    }
 
+    .video-thumb-button,
+    .video-thumb-image,
+    .video-thumb-overlay,
+    .video-thumb-play {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-    video-thumb-button {
-  appearance: none;
-  -webkit-appearance: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
-  z-index: 2;
-}
-    video-thumb-button,
-.video-thumb-image,
-.video-thumb-overlay,
-.video-thumb-play {
-  -webkit-tap-highlight-color: transparent;
-}
+    .video-thumb-image,
+    .video-thumb-overlay,
+    .video-thumb-play {
+      pointer-events: none;
+    }
 
-.video-thumb-image,
-.video-thumb-overlay,
-.video-thumb-play {
-  pointer-events: none;
-}
-
-.video-thumb iframe {
-  position: relative;
-  z-index: 3;
-}
+    .video-thumb iframe {
+      position: relative;
+      z-index: 3;
+    }
 
     .video-thumb-image {
       position: absolute;
@@ -2146,7 +2147,7 @@
                 <div>
                   <div class="portfolio-progress-title">Portfolio-Fortschritt</div>
                 </div>
-                <div class="portfolio-live-badge">Live </div>
+                <div class="portfolio-live-badge">Live</div>
               </div>
 
               <div class="portfolio-stand">
@@ -2404,92 +2405,92 @@
     </section>
 
     <section class="section reveal" id="videos">
-  <div class="section-head">
-    <div class="section-kicker">Empfohlene Videos</div>
-    <h2>Die wichtigsten Gedanken im Markt.</h2>
-    <p class="section-intro">
-      Keine schnellen Meinungen, sondern saubere Einordnung.
-      Diese Videos zeigen, wie ich Märkte analysiere, Entscheidungen treffe und Vermögen im echten Umfeld aufbaue.
-    </p>
-  </div>
+      <div class="section-head">
+        <div class="section-kicker">Empfohlene Videos</div>
+        <h2>Die wichtigsten Gedanken im Markt.</h2>
+        <p class="section-intro">
+          Keine schnellen Meinungen, sondern saubere Einordnung.
+          Diese Videos zeigen, wie ich Märkte analysiere, Entscheidungen treffe und Vermögen im echten Umfeld aufbaue.
+        </p>
+      </div>
 
-  <div class="videos-grid">
-    <div class="video-card reveal reveal-delay-1">
-      <div class="video-thumb" data-video-id="jcQnE7ppzT4">
-        <button class="video-thumb-button" type="button" aria-label="Video abspielen: Bitcoin 2026 Analyse">
-          <img
-            class="video-thumb-image"
-            src="https://img.youtube.com/vi/jcQnE7ppzT4/hqdefault.jpg"
-            alt="Thumbnail: Bitcoin 2026 Analyse"
-            loading="lazy"
-          />
-          <span class="video-thumb-overlay"></span>
-          <span class="video-thumb-play"></span>
-        </button>
-      </div>
-      <div class="card-label">Marktzyklen</div>
-      <h3>Bitcoin 2026: Zyklus, Kaufbereiche & meine Strategie</h3>
-      <p>
-        Makro-Einordnung, Marktphasen und die Frage, wo echte Chancen entstehen,
-        wenn Emotionen dominieren.
-      </p>
-      <div class="video-meta">
-        <div class="video-chip">Analyse</div>
-        <div class="video-chip">Langfristig</div>
-      </div>
-    </div>
+      <div class="videos-grid">
+        <div class="video-card reveal reveal-delay-1">
+          <div class="video-thumb" data-video-id="jcQnE7ppzT4">
+            <button class="video-thumb-button" type="button" aria-label="Video abspielen: Bitcoin 2026 Analyse">
+              <img
+                class="video-thumb-image"
+                src="https://img.youtube.com/vi/jcQnE7ppzT4/hqdefault.jpg"
+                alt="Thumbnail: Bitcoin 2026 Analyse"
+                loading="lazy"
+              />
+              <span class="video-thumb-overlay"></span>
+              <span class="video-thumb-play"></span>
+            </button>
+          </div>
+          <div class="card-label">Marktzyklen</div>
+          <h3>Bitcoin 2026: Zyklus, Kaufbereiche & meine Strategie</h3>
+          <p>
+            Makro-Einordnung, Marktphasen und die Frage, wo echte Chancen entstehen,
+            wenn Emotionen dominieren.
+          </p>
+          <div class="video-meta">
+            <div class="video-chip">Analyse</div>
+            <div class="video-chip">Langfristig</div>
+          </div>
+        </div>
 
-    <div class="video-card reveal reveal-delay-2">
-      <div class="video-thumb" data-video-id="yRSYFbv2xZA">
-        <button class="video-thumb-button" type="button" aria-label="Video abspielen: Road to 100k Portfolio">
-          <img
-            class="video-thumb-image"
-            src="https://img.youtube.com/vi/yRSYFbv2xZA/hqdefault.jpg"
-            alt="Thumbnail: Road to 100k Portfolio"
-            loading="lazy"
-          />
-          <span class="video-thumb-overlay"></span>
-          <span class="video-thumb-play"></span>
-        </button>
-      </div>
-      <div class="card-label">Portfolio</div>
-      <h3>Road to 100k – öffentlich durch den Markt</h3>
-      <p>
-        Kein Rückblick, sondern laufende Dokumentation von Gedanken,
-        Gewichtungen und strategischen Entscheidungen.
-      </p>
-      <div class="video-meta">
-        <div class="video-chip">Road to 100k</div>
-        <div class="video-chip">Transparent</div>
-      </div>
-    </div>
+        <div class="video-card reveal reveal-delay-2">
+          <div class="video-thumb" data-video-id="yRSYFbv2xZA">
+            <button class="video-thumb-button" type="button" aria-label="Video abspielen: Road to 100k Portfolio">
+              <img
+                class="video-thumb-image"
+                src="https://img.youtube.com/vi/yRSYFbv2xZA/hqdefault.jpg"
+                alt="Thumbnail: Road to 100k Portfolio"
+                loading="lazy"
+              />
+              <span class="video-thumb-overlay"></span>
+              <span class="video-thumb-play"></span>
+            </button>
+          </div>
+          <div class="card-label">Portfolio</div>
+          <h3>Road to 100k – öffentlich durch den Markt</h3>
+          <p>
+            Kein Rückblick, sondern laufende Dokumentation von Gedanken,
+            Gewichtungen und strategischen Entscheidungen.
+          </p>
+          <div class="video-meta">
+            <div class="video-chip">Road to 100k</div>
+            <div class="video-chip">Transparent</div>
+          </div>
+        </div>
 
-    <div class="video-card reveal reveal-delay-3">
-      <div class="video-thumb" data-video-id="6oqLi20qvD4">
-        <button class="video-thumb-button" type="button" aria-label="Video abspielen: Rational im Bärenmarkt">
-          <img
-            class="video-thumb-image"
-            src="https://img.youtube.com/vi/6oqLi20qvD4/hqdefault.jpg"
-            alt="Thumbnail: Rational im Bärenmarkt"
-            loading="lazy"
-          />
-          <span class="video-thumb-overlay"></span>
-          <span class="video-thumb-play"></span>
-        </button>
+        <div class="video-card reveal reveal-delay-3">
+          <div class="video-thumb" data-video-id="6oqLi20qvD4">
+            <button class="video-thumb-button" type="button" aria-label="Video abspielen: Rational im Bärenmarkt">
+              <img
+                class="video-thumb-image"
+                src="https://img.youtube.com/vi/6oqLi20qvD4/hqdefault.jpg"
+                alt="Thumbnail: Rational im Bärenmarkt"
+                loading="lazy"
+              />
+              <span class="video-thumb-overlay"></span>
+              <span class="video-thumb-play"></span>
+            </button>
+          </div>
+          <div class="card-label">Haltung</div>
+          <h3>Warum rationale Anleger im Bärenmarkt anders denken</h3>
+          <p>
+            Vermögensaufbau ist kein Entertainment-Format,
+            sondern ein Spiel aus Disziplin, Timing und Haltung.
+          </p>
+          <div class="video-meta">
+            <div class="video-chip">Psychologie</div>
+            <div class="video-chip">Substanz</div>
+          </div>
+        </div>
       </div>
-      <div class="card-label">Haltung</div>
-      <h3>Warum rationale Anleger im Bärenmarkt anders denken</h3>
-      <p>
-        Vermögensaufbau ist kein Entertainment-Format,
-        sondern ein Spiel aus Disziplin, Timing und Haltung.
-      </p>
-      <div class="video-meta">
-        <div class="video-chip">Psychologie</div>
-        <div class="video-chip">Substanz</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="section section-featured reveal" id="principles">
       <div class="featured-shell">
@@ -2696,31 +2697,7 @@
       if (!button || !videoId) return;
 
       const loadVideo = () => {
-  const iframe = document.createElement('iframe');
-  iframe.setAttribute(
-    'src',
-    `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1&origin=${encodeURIComponent(window.location.origin)}`
-  );
-  iframe.setAttribute('title', 'YouTube video player');
-  iframe.setAttribute('frameborder', '0');
-  iframe.setAttribute(
-    'allow',
-    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-  );
-  iframe.setAttribute('allowfullscreen', '');
-  iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-
-  thumb.innerHTML = '';
-  thumb.appendChild(iframe);
-};
-
-button.addEventListener('click', loadVideo);
-
-button.addEventListener('touchend', (event) => {
-  event.preventDefault();
-  loadVideo();
-}, { passive: false });
-      
+        const iframe = document.createElement('iframe');
         iframe.setAttribute(
           'src',
           `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1&origin=${encodeURIComponent(window.location.origin)}`
@@ -2736,7 +2713,14 @@ button.addEventListener('touchend', (event) => {
 
         thumb.innerHTML = '';
         thumb.appendChild(iframe);
-      });
+      };
+
+      button.addEventListener('click', loadVideo);
+
+      button.addEventListener('touchend', (event) => {
+        event.preventDefault();
+        loadVideo();
+      }, { passive: false });
     });
 
     function formatEuro(value) {
@@ -2762,6 +2746,8 @@ button.addEventListener('touchend', (event) => {
 
     function renderMainPortfolioData() {
       const progressPercent = (portfolioData.currentValue / portfolioData.goal) * 100;
+      const performanceNumber = Number(portfolioData.performanceSinceStart) || 0;
+      const performancePrefix = performanceNumber > 0 ? '+' : '';
 
       document.getElementById('heroPortfolioValue').textContent = formatEuro(portfolioData.currentValue);
       document.getElementById('heroPortfolioCopy').textContent = portfolioData.heroDescription;
@@ -2773,7 +2759,7 @@ button.addEventListener('touchend', (event) => {
       document.getElementById('portfolioStandValue').textContent = formatEuro(portfolioData.currentValue);
       document.getElementById('portfolioGoalValue').textContent = formatEuro(portfolioData.goal);
       document.getElementById('portfolioProgressText').textContent = formatPercent(progressPercent, 1);
-      document.getElementById('portfolioPerformanceText').textContent = `+${new Intl.NumberFormat('de-DE').format(portfolioData.performanceSinceStart)}%`;
+      document.getElementById('portfolioPerformanceText').textContent = `${performancePrefix}${String(performanceNumber).replace('.', ',')}%`;
       document.getElementById('portfolioOpenBudgetText').textContent = formatEuro(portfolioData.openBudget);
 
       document.getElementById('snapshotStartCapital').textContent = formatEuro(portfolioData.startCapital);
@@ -2890,8 +2876,8 @@ button.addEventListener('touchend', (event) => {
             <stop offset="100%" stop-color="#f8b53a"></stop>
           </linearGradient>
           <linearGradient id="chartAreaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="rgba(245,166,35,0.28)"></stop>
-            <stop offset="100%" stop-color="rgba(245,166,35,0.02)"></stop>
+            <stop offset="0%" stop-color="#f5a623" stop-opacity="0.28"></stop>
+            <stop offset="100%" stop-color="#f5a623" stop-opacity="0.02"></stop>
           </linearGradient>
         </defs>
 
