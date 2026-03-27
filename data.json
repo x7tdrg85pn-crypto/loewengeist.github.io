@@ -2,7 +2,7 @@
   "goal": 100000,
   "startCapital": 1000,
   "monthlyBudget": 500,
-  "openBudget": 1468,
+  "openBudget": 1450,
   "lastUpdate": "April 2026",
   "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Marktzyklen, antizyklisches Denken und rationale Entscheidungen im echten Markt.",
 
@@ -27,7 +27,7 @@
       "type": "Kauf",
       "asset": "Bitcoin",
       "amount": 0.0015,
-      "price": 982.08
+      "price": 50
     }
   ],
 
