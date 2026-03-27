@@ -2676,10 +2676,12 @@
 
     function calculatePortfolioTotals() {
       const holdings = {};
+      let netInvestedCapital = 0;
 
       portfolioData.transactions.forEach((tx) => {
         const asset = tx.asset;
         const amount = Number(tx.amount);
+        const price = Number(tx.price);
         const type = String(tx.type).toLowerCase();
 
         if (!holdings[asset]) {
@@ -2688,8 +2690,10 @@
 
         if (type.includes('verkauf')) {
           holdings[asset] -= amount;
+          netInvestedCapital -= price;
         } else {
           holdings[asset] += amount;
+          netInvestedCapital += price;
         }
       });
 
@@ -2700,21 +2704,27 @@
         currentAssetValue += amount * marketPrice;
       });
 
-      const currentValue = currentAssetValue + Number(portfolioData.openBudget || 0);
+      const contributedCapital = Number(portfolioData.contributedCapital || 0);
+      const cashBalance = contributedCapital - netInvestedCapital;
+      const currentValue = currentAssetValue + cashBalance;
+
       const performanceSinceStart =
-        Number(portfolioData.startCapital) > 0
-          ? ((currentValue - Number(portfolioData.startCapital)) / Number(portfolioData.startCapital)) * 100
+        contributedCapital > 0
+          ? ((currentValue - contributedCapital) / contributedCapital) * 100
           : 0;
 
       return {
         holdings,
+        netInvestedCapital,
         currentAssetValue,
+        cashBalance,
+        contributedCapital,
         currentValue,
         performanceSinceStart
       };
     }
 
-    function buildDynamicAllocations(holdings, currentValue) {
+    function buildDynamicAllocations(holdings, currentValue, cashBalance) {
       const allocationSource = [];
 
       Object.entries(holdings).forEach(([asset, amount]) => {
@@ -2731,11 +2741,11 @@
         }
       });
 
-      if (Number(portfolioData.openBudget || 0) > 0) {
+      if (cashBalance > 0) {
         const cashColorEntry = (portfolioData.allocations || []).find((item) => item.name === 'Cash');
         allocationSource.push({
           name: 'Cash',
-          value: Number(portfolioData.openBudget),
+          value: cashBalance,
           color: cashColorEntry ? cashColorEntry.color : 'rgba(255,255,255,0.22)'
         });
       }
@@ -2750,11 +2760,11 @@
       const {
         holdings,
         currentValue,
-        performanceSinceStart
+        performanceSinceStart,
+        cashBalance
       } = calculatePortfolioTotals();
 
       const goal = Number(portfolioData.goal || 0);
-      const openBudget = Number(portfolioData.openBudget || 0);
       const progressPercent = goal > 0 ? (currentValue / goal) * 100 : 0;
       const remaining = Math.max(goal - currentValue, 0);
       const performancePrefix = performanceSinceStart > 0 ? '+' : '';
@@ -2771,17 +2781,17 @@
       document.getElementById('portfolioProgressText').textContent = formatPercent(progressPercent, 1);
       document.getElementById('portfolioPerformanceText').textContent =
         `${performancePrefix}${Number(performanceSinceStart).toFixed(1).replace('.', ',')}%`;
-      document.getElementById('portfolioOpenBudgetText').textContent = formatEuro(openBudget);
+      document.getElementById('portfolioOpenBudgetText').textContent = formatEuro(cashBalance);
       document.getElementById('remainingToGoal').textContent = formatEuro(remaining);
 
       document.getElementById('snapshotStartCapital').textContent = formatEuro(portfolioData.startCapital);
       document.getElementById('snapshotMonthlyBudget').textContent = formatEuro(portfolioData.monthlyBudget);
-      document.getElementById('snapshotOpenBudget').textContent = formatEuro(openBudget);
+      document.getElementById('snapshotOpenBudget').textContent = formatEuro(cashBalance);
 
       document.getElementById('snapshotStartCapitalMirror').textContent = formatEuro(portfolioData.startCapital);
       document.getElementById('snapshotMonthlyBudgetMirror').textContent = formatEuro(portfolioData.monthlyBudget);
       document.getElementById('snapshotGoal').textContent = formatEuro(goal);
-      document.getElementById('snapshotOpenBudgetMirror').textContent = formatEuro(openBudget);
+      document.getElementById('snapshotOpenBudgetMirror').textContent = formatEuro(cashBalance);
       document.getElementById('snapshotLastUpdate').textContent = portfolioData.lastUpdate || '–';
 
       document.getElementById('ruleStartCapital').textContent = formatEuro(portfolioData.startCapital);
@@ -2790,7 +2800,7 @@
 
       document.getElementById('portfolioProgressFill').style.width = `${Math.min(progressPercent, 100)}%`;
 
-      const dynamicAllocations = buildDynamicAllocations(holdings, currentValue);
+      const dynamicAllocations = buildDynamicAllocations(holdings, currentValue, cashBalance);
       renderAllocations(dynamicAllocations);
     }
 
