@@ -7,7 +7,7 @@
   "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Marktzyklen, antizyklisches Denken und rationale Entscheidungen im echten Markt.",
 
   "marketPrices": {
-    "Bitcoin": 65472
+    "Bitcoin": 66158
   },
 
   "allocations": [
@@ -26,7 +26,7 @@
       "date": "05.04.2026",
       "type": "Kauf",
       "asset": "Bitcoin",
-      "amount": 0.0015,
+      "amount": 0.0007557,
       "price": 50
     }
   ],
