@@ -2394,6 +2394,7 @@
                 src="https://i.ytimg.com/vi/jcQnE7ppzT4/hqdefault.jpg"
                 alt="Thumbnail: Bitcoin 2026 Analyse"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
               />
               <span class="video-thumb-overlay"></span>
               <span class="video-thumb-play"></span>
@@ -2419,6 +2420,7 @@
                 src="https://i.ytimg.com/vi/yRSYFbv2xZA/hqdefault.jpg"
                 alt="Thumbnail: Road to 100k Portfolio"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
               />
               <span class="video-thumb-overlay"></span>
               <span class="video-thumb-play"></span>
@@ -2444,6 +2446,7 @@
                 src="https://i.ytimg.com/vi/6oqLi20qvD4/hqdefault.jpg"
                 alt="Thumbnail: Rational im Bärenmarkt"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
               />
               <span class="video-thumb-overlay"></span>
               <span class="video-thumb-play"></span>
@@ -2669,10 +2672,18 @@
 
       button.addEventListener('click', () => {
         const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        iframe.title = 'YouTube video player';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
+        iframe.setAttribute(
+          'src',
+          `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1&origin=${encodeURIComponent(window.location.origin)}`
+        );
+        iframe.setAttribute('title', 'YouTube video player');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute(
+          'allow',
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        );
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
 
         thumb.innerHTML = '';
         thumb.appendChild(iframe);
