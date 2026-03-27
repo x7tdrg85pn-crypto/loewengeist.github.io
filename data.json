@@ -32,11 +32,11 @@
   ],
 
   "chartData": [
-    { "month": "Mrz", "value": 1000 },
-    { "month": "Apr", "value": 1500 },
-    { "month": "Mai", "value": 2000 },
-    { "month": "Jun", "value": 3000 },
-    { "month": "Jul", "value": 3000 },
-    { "month": "Aug", "value": 3000 }
+    { "month": "Mrz", "value": 0 },
+    { "month": "Apr", "value": 50 },
+    { "month": "Mai", "value": 50 },
+    { "month": "Jun", "value": 50 },
+    { "month": "Jul", "value": 50 },
+    { "month": "Aug", "value": 50 }
   ]
 }
