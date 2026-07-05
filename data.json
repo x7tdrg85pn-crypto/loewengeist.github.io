@@ -3,7 +3,7 @@
   "startCapital": 1000,
   "monthlyBudget": 500,
   "contributedCapital": 2500,
-  "lastUpdate": "Juni 2026",
+  "lastUpdate": "Juli 2026",
   "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Marktzyklen, antizyklisches Denken und rationale Entscheidungen im echten Markt.",
   "marketPrices": {
     "Bitcoin": 62038
@@ -39,6 +39,13 @@
       "asset": "Bitcoin",
       "amount": 0.001612,
       "price": 100.00
+    },
+    {
+      "date": "05.07.2026",
+      "type": "Kauf",
+      "asset": "Bitcoin",
+      "amount": 0.003224,
+      "price": 200.00
     }
   ],
   "chartData": [
@@ -60,11 +67,11 @@
     },
     {
       "month": "Jul",
-      "value": 200
+      "value": 400
     },
     {
       "month": "Aug",
-      "value": 200
+      "value": 400
     }
   ]
 }
