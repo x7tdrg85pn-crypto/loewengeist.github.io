@@ -46,6 +46,13 @@
       "asset": "Bitcoin",
       "amount": 0.003224,
       "price": 200.00
+    },
+     {
+      "date": "03.08.2026",
+      "type": "Kauf",
+      "asset": "Bitcoin",
+      "amount": 0.003566,
+      "price": 200.00
     }
   ],
   "chartData": [
