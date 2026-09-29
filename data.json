@@ -6,7 +6,7 @@
   "lastUpdate": "August 2026",
   "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Marktzyklen, antizyklisches Denken und rationale Entscheidungen im echten Markt.",
   "marketPrices": {
-    "Bitcoin": 77135
+    "Bitcoin": 74309
   },
   "allocations": [
     {
@@ -53,6 +53,20 @@
       "asset": "Bitcoin",
       "amount": 0.003566,
       "price": 200.00
+    },
+    {
+      "date": "06.09.2026",
+      "type": "Kauf",
+      "asset": "Bitcoin",
+      "amount": 0.001506,
+      "price": 100.00
+    },
+    {
+      "date": "03.08.2026",
+      "type": "Kauf",
+      "asset": "Bitcoin",
+      "amount": 0.001396,
+      "price": 100.00
     }
   ],
   "chartData": [
