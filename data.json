@@ -75,7 +75,6 @@
       "amount": 0.006943,
       "price": 500.00
     }
-    
   ],
   "chartData": [
     {
@@ -103,7 +102,7 @@
       "value": 700
     },{
       "month": "Okt",
-      "value": 800
+      "value": 1300
     }
   ]
 }
