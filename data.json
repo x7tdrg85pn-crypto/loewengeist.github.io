@@ -2,11 +2,11 @@
   "goal": 100000,
   "startCapital": 1000,
   "monthlyBudget": 500,
-  "contributedCapital": 4500,
-  "lastUpdate": "Oktober 2026",
+  "contributedCapital": 5000,
+  "lastUpdate": "November 2026",
   "heroDescription": "Öffentlich dokumentierter Vermögensaufbau mit Fokus auf Marktzyklen, antizyklisches Denken und rationale Entscheidungen im echten Markt.",
   "marketPrices": {
-    "Bitcoin": 72005
+    "Bitcoin": 60907
   },
   "allocations": [
     {
@@ -74,6 +74,13 @@
       "asset": "Bitcoin",
       "amount": 0.006943,
       "price": 500.00
+    },
+    {
+      "date": "14.11.2026",
+      "type": "Kauf",
+      "asset": "Bitcoin",
+      "amount": 0.016418
+      "price": 1000.00
     }
   ],
   "chartData": [
@@ -100,9 +107,14 @@
     {
       "month": "Sep",
       "value": 700
-    },{
+    },
+    {
       "month": "Okt",
       "value": 1300
+    },
+    {
+      "month": "Nov",
+      "value": 2300
     }
   ]
 }
