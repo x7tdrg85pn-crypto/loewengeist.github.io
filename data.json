@@ -81,6 +81,13 @@
       "asset": "Bitcoin",
       "amount": 0.016418,
       "price": 1000.00
+    },
+    {
+      "date": "20.11.2026",
+      "type": "Kauf",
+      "asset": "Bitcoin",
+      "amount": 0.0089,
+      "price": 500.00
     }
   ],
   "chartData": [
